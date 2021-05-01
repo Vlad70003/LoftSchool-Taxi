@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css'
 import {LoginModal} from './Elements/LoginModal/LoginModal.jsx';
-import {RegModal} from './Elements/RegModal/RegModal';
+import {RegModal} from './Elements/RegModal/RegModal.jsx';
 
 let WINDOW = {
     loginModal: <LoginModal/>,
@@ -10,7 +10,7 @@ let WINDOW = {
 
 export class Login extends React.Component{
 
-    state = { currentPage: 'regModal'}
+    state = { currentPage: 'loginModal'}
 
     navigateTo = (page) => {
       this.state({currentPage: page})

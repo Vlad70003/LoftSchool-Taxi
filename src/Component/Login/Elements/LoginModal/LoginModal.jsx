@@ -13,7 +13,7 @@ export const LoginModal = () => {
                         <button className="button">Войти</button>
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Новый пользователь?</label>
-                            <button className="reg-link" name="reg" id="reg">Регистрация</button>
+                            <button className="reg-link" name="reg" id="reg" onClick={() => this.navigateTo('regModal')}>Регистрация</button>
                         </div>
                         
                     </form>
