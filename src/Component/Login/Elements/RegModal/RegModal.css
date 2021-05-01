@@ -3,7 +3,7 @@
     box-sizing: border-box;
     outline: none;
 }
-.modal-login{
+.modal-reg{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -31,7 +31,13 @@
 }
 .user-inf{
     display: flex;
-    justify-content: space-a;
+    padding-top: 15px;
+}
+.user-inf>div{
+    width: 200px;
+}
+.user-inf__lastName{
+    margin-left: 10px;
 }
 label{
     font-weight: 700;

@@ -1,9 +1,20 @@
 import React from 'react';
 import './Login.css'
 import {LoginModal} from './Elements/LoginModal/LoginModal.jsx';
+import {RegModal} from './Elements/RegModal/RegModal';
 
+let WINDOW = {
+    loginModal: <LoginModal/>,
+    regModal: <RegModal/>,
+}
 
 export class Login extends React.Component{
+
+    state = { currentPage: 'regModal'}
+
+    navigateTo = (page) => {
+      this.state({currentPage: page})
+    }
     render(){
         return (
             <section className="section-login">
@@ -24,7 +35,7 @@ export class Login extends React.Component{
     </svg>
                 </section>
                 <section className="right-section">
-                    <LoginModal />
+                    {WINDOW[this.state.currentPage]}
                 </section>
             </section>
         )
