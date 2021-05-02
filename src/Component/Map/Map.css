@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #1C1A19;
+}
+.nav-link{
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px;
+    text-transform: none;
+    text-decoration: none;
+}

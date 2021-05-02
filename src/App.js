@@ -1,22 +1,27 @@
 import React from 'react';
-import {Login} from './Component/Login/Login'
+import {Login} from './Component/Login/Login.jsx';
+import {Map} from './Component/Map/Map.jsx';
 import './App.css';
-
-let PAGES = {
-  login: <Login/>,
-}
 
 class App extends React.Component {
 
-  state = { currentPage: 'login'}
+  constructor(props){
+    super(props);
+    this.state = { 
+      currentPage: 'login'
+    }
+  }
 
   navigateTo = (page) => {
-    this.state({currentPage: page})
+    this.setState({currentPage: page})
   }
 
   render(){
     return (
-      <div>{PAGES[this.state.currentPage]}</div>
+      <section className="mapSection">
+        {this.state.currentPage === 'map' && <Map navigateTo={this.navigateTo} />}
+        {this.state.currentPage === 'login' && <Login navigateTo={this.navigateTo} />}
+      </section>
     )
   }
 }
