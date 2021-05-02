@@ -20,6 +20,7 @@ class App extends React.Component {
     return (
       <section className="mapSection">
         {this.state.currentPage === 'map' && <Map pageTo={this.pageTo} />}
+        
         {this.state.currentPage === 'login' && <Login pageTo={this.pageTo} />}
       </section>
     )
