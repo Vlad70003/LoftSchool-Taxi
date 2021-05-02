@@ -1,7 +1,8 @@
 import React from 'react';
 import './RegModal.css';
 
-export const RegModal = () => {
+export class RegModal extends React.Component {
+    render(){
         return(
             <div className="modal-reg">
                     <h4 className="title">Регистрация</h4>
@@ -23,10 +24,11 @@ export const RegModal = () => {
                         <button className="button">Зарегистрироваться</button>
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Уже зарегистрирован?</label>
-                            <button className="reg-link" name="reg" id="reg">Войти</button>
+                            <a className="reg-link" name="reg" id="reg" onClick = {()=> this.props.navigateTo('loginModal')}>Войти</a>
                         </div>
                         
                     </form>
                 </div>
         )
+    }
 }

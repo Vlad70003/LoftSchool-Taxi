@@ -1,7 +1,10 @@
 import React from 'react';
 import './LoginModal.css';
+import {Login} from '../../Login';
 
-export const LoginModal = () => {
+export class LoginModal extends React.Component {
+
+    render(){
         return(
             <div className="modal-login">
                     <h4 className="title">Войти</h4>
@@ -13,10 +16,12 @@ export const LoginModal = () => {
                         <button className="button">Войти</button>
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Новый пользователь?</label>
-                            <button className="reg-link" name="reg" id="reg" onClick={() => this.navigateTo('regModal')}>Регистрация</button>
+                            <a className="reg-link" name="reg" id="reg" onClick={() => this.props.navigateTo('regModal')}>Регистрация</a>
                         </div>
                         
                     </form>
                 </div>
         )
+
+    }
 }
