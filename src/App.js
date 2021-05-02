@@ -12,15 +12,15 @@ class App extends React.Component {
     }
   }
 
-  navigateTo = (page) => {
+  pageTo = (page) => {
     this.setState({currentPage: page})
   }
 
   render(){
     return (
       <section className="mapSection">
-        {this.state.currentPage === 'map' && <Map navigateTo={this.navigateTo} />}
-        {this.state.currentPage === 'login' && <Login navigateTo={this.navigateTo} />}
+        {this.state.currentPage === 'map' && <Map pageTo={this.pageTo} />}
+        {this.state.currentPage === 'login' && <Login pageTo={this.pageTo} />}
       </section>
     )
   }

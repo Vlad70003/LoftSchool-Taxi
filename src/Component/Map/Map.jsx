@@ -25,7 +25,7 @@ export class Map extends React.Component {
                     <nav className="navigation">
                         <a href="" className="nav-link">Карта</a>
                         <a href="" className="nav-link">Профиль</a>
-                        <a href="" className="nav-link" onClick={()=> this.props.navigateTo('login')}>Выйти</a>
+                        <a href="" className="nav-link" onClick={() => this.props.pageTo('login')}>Выйти</a>
                     </nav>
                 </header>
                 <section className="main">

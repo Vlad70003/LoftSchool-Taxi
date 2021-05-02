@@ -59,6 +59,7 @@ input{
     border-radius: 30px;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .new-user{
     margin: 0 auto;

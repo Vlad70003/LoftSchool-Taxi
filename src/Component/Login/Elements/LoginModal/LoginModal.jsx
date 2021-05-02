@@ -1,6 +1,5 @@
 import React from 'react';
 import './LoginModal.css';
-import {Login} from '../../Login';
 
 export class LoginModal extends React.Component {
 

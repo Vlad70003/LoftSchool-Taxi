@@ -40,6 +40,7 @@ export class Login extends React.Component{
                 <section className="right-section">
                     {this.state.currentPage === 'loginModal' && <LoginModal navigateTo={this.navigateTo} />}
                     {this.state.currentPage === 'regModal' && <RegModal navigateTo={this.navigateTo} />}
+                    {this.state.currentPage === 'map'? this.props.pageTo('map'): console.error('ERROR')}
                 </section>
             </section>
         )
