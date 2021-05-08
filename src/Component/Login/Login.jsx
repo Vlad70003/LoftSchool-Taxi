@@ -2,7 +2,8 @@ import React from 'react';
 import './Login.css'
 import {LoginModal} from './Elements/LoginModal/LoginModal.jsx';
 import {RegModal} from './Elements/RegModal/RegModal.jsx';
-import logo from './img/logo.svg'
+import logo from './img/logo.svg';
+import PropTypes from 'prop-types';
 
 export class Login extends React.Component{
 
@@ -34,3 +35,7 @@ export class Login extends React.Component{
     }
     
 }
+
+Login.propTypes = {
+    pageTo: PropTypes.func
+} 

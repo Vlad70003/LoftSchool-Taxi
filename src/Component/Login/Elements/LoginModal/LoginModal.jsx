@@ -1,5 +1,7 @@
 import React from 'react';
 import './LoginModal.css';
+import PropTypes from 'prop-types';
+
 
 export class LoginModal extends React.Component {
 
@@ -23,4 +25,8 @@ export class LoginModal extends React.Component {
         )
 
     }
+}
+
+LoginModal.propTypes = {
+    navigateTo: PropTypes.func
 }

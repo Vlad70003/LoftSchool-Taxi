@@ -2,7 +2,7 @@ import React from 'react';
 import './Map.css';
 import logo from './img/logo.svg';
 import {MapSection} from './Element/MapSection.jsx';
-
+import PropTypes from 'prop-types';
 
 export class Map extends React.Component {
     render(){
@@ -23,4 +23,8 @@ export class Map extends React.Component {
             
         )
     }
+}
+
+Map.propTypes = {
+    pageTo: PropTypes.func  
 }

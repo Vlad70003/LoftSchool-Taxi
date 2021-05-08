@@ -1,5 +1,6 @@
 import React from 'react';
 import './RegModal.css';
+import PropTypes from 'prop-types';
 
 export class RegModal extends React.Component {
     render(){
@@ -31,4 +32,7 @@ export class RegModal extends React.Component {
                 </div>
         )
     }
+}
+RegModal.propTypes = {
+    navigateTo: PropTypes.func
 }
