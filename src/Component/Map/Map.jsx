@@ -1,7 +1,7 @@
 import React from 'react';
 import './Map.css';
 import logo from './img/logo.svg';
-
+import {MapSection} from './Element/MapSection.jsx';
 
 
 export class Map extends React.Component {
@@ -17,7 +17,7 @@ export class Map extends React.Component {
                     </nav>
                 </header>
                 <section className="main">
-                    
+                    <MapSection />
                 </section>
             </section>
             
