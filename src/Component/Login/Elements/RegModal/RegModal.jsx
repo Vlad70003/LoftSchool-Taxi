@@ -1,6 +1,7 @@
 import React from 'react';
 import './RegModal.css';
 import PropTypes from 'prop-types';
+import {withAuth} from '../../../../AuthContext';
 
 export class RegModal extends React.Component {
     render(){
@@ -33,6 +34,9 @@ export class RegModal extends React.Component {
         )
     }
 }
+
+export let RegModalWithAuth = withAuth(RegModal);
+
 RegModal.propTypes = {
     navigateTo: PropTypes.func
 }

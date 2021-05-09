@@ -1,9 +1,10 @@
 import React from 'react';
 import './Login.css'
-import {LoginModal} from './Elements/LoginModal/LoginModal.jsx';
-import {RegModal} from './Elements/RegModal/RegModal.jsx';
+import {LoginModalWithAuth} from './Elements/LoginModal/LoginModal.jsx';
+import {RegModalWithAuth} from './Elements/RegModal/RegModal.jsx';
 import logo from './img/logo.svg';
 import PropTypes from 'prop-types';
+import {withAuth} from '../../AuthContext';
 
 export class Login extends React.Component{
 
@@ -26,8 +27,8 @@ export class Login extends React.Component{
                     <img src={logo} alt="logo"/>
                 </section>
                 <section className="right-section">
-                    {this.state.currentPage === 'loginModal' && <LoginModal navigateTo={this.navigateTo} />}
-                    {this.state.currentPage === 'regModal' && <RegModal navigateTo={this.navigateTo} />}
+                    {this.state.currentPage === 'loginModal' && <LoginModalWithAuth navigateTo={this.navigateTo} />}
+                    {this.state.currentPage === 'regModal' && <RegModalWithAuth navigateTo={this.navigateTo} />}
                     {this.state.currentPage === 'map'? this.props.pageTo('map'): console.error('ERROR')}
                 </section>
             </section>
@@ -35,6 +36,8 @@ export class Login extends React.Component{
     }
     
 }
+
+export let LoginWithAuth = withAuth(Login);
 
 Login.propTypes = {
     pageTo: PropTypes.func
