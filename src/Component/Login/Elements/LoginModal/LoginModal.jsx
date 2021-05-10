@@ -51,5 +51,6 @@ export class LoginModal extends React.Component {
 export const LoginModalWithAuth = withAuth(LoginModal);
 
 LoginModal.propTypes = {
-    navigateTo: PropTypes.func
+    navigateTo: PropTypes.func,
+    pageTo: PropTypes.func,
 }
