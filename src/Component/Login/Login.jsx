@@ -17,8 +17,7 @@ export class Login extends React.Component{
     navigateTo = (page) => {
         this.setState({currentPage: page})
       }
-    
-    
+
 
     render(){
         return (
@@ -27,18 +26,16 @@ export class Login extends React.Component{
                     <img src={logo} alt="logo"/>
                 </section>
                 <section className="right-section">
-                    {this.state.currentPage === 'loginModal' && <LoginModalWithAuth navigateTo={this.navigateTo} />}
+                    {this.state.currentPage === 'loginModal' && <LoginModalWithAuth navigateTo={this.navigateTo} pageTo = {this.props.pageTo}/>}
                     {this.state.currentPage === 'regModal' && <RegModalWithAuth navigateTo={this.navigateTo} />}
-                    {this.state.currentPage === 'map'? this.props.pageTo('map'): console.error('ERROR')}
                 </section>
             </section>
         )
-    }
-    
+    } 
 }
 
-export let LoginWithAuth = withAuth(Login);
+export const LoginWithAuth = withAuth(Login);
 
 Login.propTypes = {
-    pageTo: PropTypes.func
+    pageTo: PropTypes.func,
 } 

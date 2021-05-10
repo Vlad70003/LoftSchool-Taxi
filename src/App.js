@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = { 
-      currentPage: 'loginWindow'
+      currentPage: 'loginWindow',
     }
   }
 
@@ -24,8 +24,7 @@ class App extends React.Component {
   render(){
     return (
       <section className="mapSection">
-        {this.state.currentPage === 'map' && <MapWithAuth pageTo={this.pageTo} />}
-        
+        {this.state.currentPage === 'map' && <MapWithAuth pageTo={this.pageTo}/>}       
         {this.state.currentPage === 'loginWindow' && <LoginWithAuth pageTo={this.pageTo} />}
       </section>
     )

@@ -36,7 +36,7 @@ export class LoginModal extends React.Component {
                         <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail}/>
                         <label htmlFor="password">Пароль</label>
                         <input type="password" name="password" id="password" placeholder="Пароль*" className="input" value={this.state.password} onChange={this.handleChangePassword} />
-                        <input type="submit" value="Отправить" className="button" onClick={() => this.props.navigateTo('map')} />
+                        <input type="submit" value="Отправить" className="button" onClick={() => this.props.pageTo('map')} />
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Новый пользователь?</label>
                             <a className="reg-link" name="reg" id="reg" onClick={() => this.props.navigateTo('regModal')}>Регистрация</a>
@@ -48,7 +48,7 @@ export class LoginModal extends React.Component {
     }
 }
 
-export let LoginModalWithAuth = withAuth(LoginModal);
+export const LoginModalWithAuth = withAuth(LoginModal);
 
 LoginModal.propTypes = {
     navigateTo: PropTypes.func
