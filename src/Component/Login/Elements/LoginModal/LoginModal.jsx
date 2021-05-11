@@ -31,7 +31,7 @@ export class LoginModal extends React.Component {
         return(
             <div className="modal-login">
                     <h4 className="title">Войти</h4>
-                    <form action="" className="form" onSubmit={this.handleSubmit}>
+                    <form action="" className="form" onSubmit={this.handleSubmit} data-testid="form-test">
                         <label htmlFor="email" >Имя пользователя*</label>
                         <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail}/>
                         <label htmlFor="password">Пароль</label>

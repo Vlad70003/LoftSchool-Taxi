@@ -21,7 +21,7 @@ export class Login extends React.Component{
 
     render(){
         return (
-            <section className="section-login">
+            <section className="section-login" data-testid="section-login">
                 <section className="left-section">
                     <img src={logo} alt="logo"/>
                 </section>
