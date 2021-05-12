@@ -1,29 +1,34 @@
 import React from 'react';
-import {Login} from './Component/Login/Login.jsx';
-import {Map} from './Component/Map/Map.jsx';
+import {LoginWithAuth} from './Component/Login/Login.jsx';
+import {MapWithAuth} from './Component/Map/Map.jsx';
 import './App.css';
+import {withAuth} from './AuthContext'
 
 class App extends React.Component {
 
   constructor(props){
     super(props);
     this.state = { 
-      currentPage: 'login'
+      currentPage: 'loginWindow',
     }
   }
 
   pageTo = (page) => {
-    this.setState({currentPage: page})
+    if(this.props.isLoggedIn){
+      this.setState({currentPage: page})
+    }else{
+      this.setState({currentPage: 'loginWindow'})
+    }  
   }
 
   render(){
     return (
       <section className="mapSection">
-        {this.state.currentPage === 'map' && <Map pageTo={this.pageTo} />}
-        {this.state.currentPage === 'login' && <Login pageTo={this.pageTo} />}
+        {this.state.currentPage === 'map' && <MapWithAuth pageTo={this.pageTo}/>}       
+        {this.state.currentPage === 'loginWindow' && <LoginWithAuth pageTo={this.pageTo} />}
       </section>
     )
   }
 }
 
-export default App;
+export default withAuth(App);
