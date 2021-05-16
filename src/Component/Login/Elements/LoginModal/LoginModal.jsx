@@ -33,7 +33,7 @@ export class LoginModal extends React.Component {
                     <h4 className="title">Войти</h4>
                     <form action="" className="form" onSubmit={this.handleSubmit} data-testid="form-test">
                         <label htmlFor="email" >Имя пользователя*</label>
-                        <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail}/>
+                        <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail} data-testid="form-input" />
                         <label htmlFor="password">Пароль</label>
                         <input type="password" name="password" id="password" placeholder="Пароль*" className="input" value={this.state.password} onChange={this.handleChangePassword} />
                         <input type="submit" value="Отправить" className="button" onClick={() => this.props.pageTo('map')} />

@@ -16,11 +16,9 @@ describe("RegModal", () => {
 
   it("event click by link Send", () => {
     render(<RegModal />);
-    let navigateTo = jest.fn();
-    let { conteiner } = render(<a className="reg-link" name="reg" id="reg" onClick = {navigateTo} data-testid="link">Текст</a>);
-    let link = screen.getByText("Текст");
-    fireEvent.click(link);
-    expect(navigateTo).toHaveBeenCalledTimes(1);
-    
+    let input = screen.getByTestId("form-input");
+    expect(input).not.toHaveFocus();
+    input.focus();
+    expect(input).toHaveFocus();
   });
 })

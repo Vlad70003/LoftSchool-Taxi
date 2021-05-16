@@ -13,19 +13,13 @@ describe("LoginModal", () => {
   });
 
   it("events input focus", () => {
-    let { content } = render(<input  data-testid="input-test-focus" />)
-    let input = screen.getByTestId("input-test-focus");
+    render(<LoginModal></LoginModal>);
+    let input = screen.getByTestId("form-input");
     expect(input).not.toHaveFocus();
     input.focus();
     expect(input).toHaveFocus();
 
   });
-  ///Выдает Ошибку на type и paste
-    // it("events input value", () => {
-    //   let { content } = render(<input type="text"  data-testid="input-test-value" value="Hello"/>)
-    //   let input = screen.getByTestId("input-test-value");
-    //   let textValue = 'Hello World!';
-    //   userEvent.paste(input, textValue);
-    // });
+
 
 });

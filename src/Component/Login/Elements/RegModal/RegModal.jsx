@@ -19,7 +19,7 @@ constructor(props){
                     <h4 className="title">Регистрация</h4>
                     <form action="" className="form" data-testid="form">
                         <label htmlFor="email">Email*</label>
-                        <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input"/>
+                        <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" data-testid="form-input" />
                         <div className="user-inf">
                             <div className="user-inf__name">
                                 <label htmlFor="name">Имя</label>
