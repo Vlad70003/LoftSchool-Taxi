@@ -18,7 +18,7 @@ export class LoginModal extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        this.props.logIn( this.state.email, this.state.password);
+        this.props.authenticate( this.state.email, this.state.password);
     }
     handleChangeEmail(event){
         this.setState({email: event.target.value});
