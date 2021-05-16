@@ -7,6 +7,19 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 
 export class Map extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.logOut = this.logOut.bind(this);
+    }
+
+    logOut(event){
+        event.preventDefault();
+        this.props.pageTo('loginWindow');
+        this.props.logOut();
+    }
+
+
     render(){
         return(
             <section className="map">
@@ -15,7 +28,7 @@ export class Map extends React.Component {
                     <nav className="navigation">
                         <a href="" className="nav-link">Карта</a>
                         <a href="" className="nav-link">Профиль</a>
-                        <a href="" className="nav-link" onClick={() => this.props.pageTo('loginWindow')}>Выйти</a>
+                        <a href="" className="nav-link" onClick={this.logOut}>Выйти</a>
                     </nav>
                 </header>
                 <section className="main">

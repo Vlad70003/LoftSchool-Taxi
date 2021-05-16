@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authenticate } from '../../../actions';
 
+
 export class LoginModal extends React.Component {
     constructor(props){
         super(props);
@@ -18,8 +19,7 @@ export class LoginModal extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        this.props.authenticate( this.state.email, this.state.password);
-        
+        this.props.authenticate( this.state.email, this.state.password);    
     }
     handleChangeEmail(event){
         this.setState({email: event.target.value});

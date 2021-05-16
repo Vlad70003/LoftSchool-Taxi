@@ -3,8 +3,6 @@ import {LoginWithAuth} from './Component/Login/Login.jsx';
 import {MapWithAuth} from './Component/Map/Map.jsx';
 import './App.css';
 import { connect } from 'react-redux';
-import { logIn } from './actions';
-import { authenticate } from './actions';
 
 class App extends React.Component {
 
@@ -22,6 +20,7 @@ class App extends React.Component {
       this.setState({currentPage: 'loginWindow'})
     }  
   }
+  
 
   render(){
     return (
