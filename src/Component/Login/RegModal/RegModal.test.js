@@ -23,4 +23,12 @@ describe("RegModal", () => {
     expect(navigateTo).toHaveBeenCalledTimes(1);
     
   });
+
+  it("checking the input focus", () => {
+    render(<RegModal />);
+    let  input  = screen.getByTestId("form-input");
+    expect(input).not.toHaveFocus();
+    input.focus();
+    expect(input).toHaveFocus();
+  })
 })
