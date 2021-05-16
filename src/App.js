@@ -3,6 +3,8 @@ import {LoginWithAuth} from './Component/Login/Login.jsx';
 import {MapWithAuth} from './Component/Map/Map.jsx';
 import './App.css';
 import { connect } from 'react-redux';
+import { logIn } from './actions';
+import { authenticate } from './actions';
 
 class App extends React.Component {
 
@@ -32,5 +34,6 @@ class App extends React.Component {
 }
 
 export default connect(
-	state => ({isLoggedIn: state.auth.isLoggedIn}),
+	state => ({isLoggedIn: state.isLoggedIn}),
+  null
 )(App);

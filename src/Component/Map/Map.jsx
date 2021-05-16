@@ -28,7 +28,7 @@ export class Map extends React.Component {
 }
 
 export let MapWithAuth = connect(
-    null,
+    state => ({isLoggedIn: state.isLoggedIn}),
     {logOut}
 )(Map);
 

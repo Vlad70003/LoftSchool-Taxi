@@ -50,8 +50,8 @@ export class LoginModal extends React.Component {
 }
 
 export const LoginModalWithAuth = connect(
-	state => ({isLoggedIn: state.auth.isLoggedIn}),
-  { authenticate }
+    state => ({isLoggedIn: state.isLoggedIn}),
+    { authenticate }
 )(LoginModal);
 
 LoginModal.propTypes = {
