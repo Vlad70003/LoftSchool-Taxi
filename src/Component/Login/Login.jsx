@@ -1,10 +1,12 @@
 import React from 'react';
 import './Login.css'
-import {LoginModalWithAuth} from './Elements/LoginModal/LoginModal.jsx';
-import {RegModalWithAuth} from './Elements/RegModal/RegModal.jsx';
+import {LoginModalWithAuth} from './LoginModal/LoginModal.jsx';
+import {RegModalWithAuth} from './RegModal/RegModal.jsx';
 import logo from './img/logo.svg';
 import PropTypes from 'prop-types';
-import {withAuth} from '../../AuthContext';
+import { connect } from 'react-redux';
+import { logIn } from '../../actions';
+// import { authenticate } from '../../actions';
 
 export class Login extends React.Component{
 
@@ -34,7 +36,10 @@ export class Login extends React.Component{
     } 
 }
 
-export const LoginWithAuth = withAuth(Login);
+export const LoginWithAuth = connect(
+	(state) => ({isLoggedIn: state.auth.isLoggedIn}),
+//   { authenticate }
+)(Login);
 
 Login.propTypes = {
     pageTo: PropTypes.func,

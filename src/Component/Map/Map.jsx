@@ -1,9 +1,10 @@
 import React from 'react';
 import './Map.css';
 import logo from './img/logo.svg';
-import {MapSection} from './Element/MapSection.jsx';
+import {MapSection} from './MapSection.jsx';
 import PropTypes from 'prop-types';
-import {withAuth} from '../../AuthContext';
+import { connect } from 'react-redux';
+import { logOut } from '../../actions';
 
 export class Map extends React.Component {
     render(){
@@ -26,7 +27,10 @@ export class Map extends React.Component {
     }
 }
 
-export let MapWithAuth = withAuth(Map);
+export let MapWithAuth = connect(
+    null,
+    {logOut}
+)(Map);
 
 Map.propTypes = {
     pageTo: PropTypes.func  

@@ -2,7 +2,7 @@ import React from 'react';
 import {LoginWithAuth} from './Component/Login/Login.jsx';
 import {MapWithAuth} from './Component/Map/Map.jsx';
 import './App.css';
-import {withAuth} from './AuthContext'
+import { connect } from 'react-redux';
 
 class App extends React.Component {
 
@@ -31,4 +31,6 @@ class App extends React.Component {
   }
 }
 
-export default withAuth(App);
+export default connect(
+	state => ({isLoggedIn: state.auth.isLoggedIn}),
+)(App);

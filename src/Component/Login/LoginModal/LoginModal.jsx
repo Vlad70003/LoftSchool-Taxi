@@ -1,7 +1,8 @@
 import React from 'react';
 import './LoginModal.css';
 import PropTypes from 'prop-types';
-import {withAuth} from '../../../../AuthContext';
+import { connect } from 'react-redux';
+import { authenticate } from '../../../actions';
 
 export class LoginModal extends React.Component {
     constructor(props){
@@ -48,7 +49,10 @@ export class LoginModal extends React.Component {
     }
 }
 
-export const LoginModalWithAuth = withAuth(LoginModal);
+export const LoginModalWithAuth = connect(
+	state => ({isLoggedIn: state.auth.isLoggedIn}),
+  { authenticate }
+)(LoginModal);
 
 LoginModal.propTypes = {
     navigateTo: PropTypes.func,
