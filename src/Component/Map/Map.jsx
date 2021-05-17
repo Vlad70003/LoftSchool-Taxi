@@ -5,6 +5,7 @@ import {MapSection} from './MapSection.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
+import { Profile } from './Profile/Profile'
 
 export class Map extends React.Component {
 
@@ -33,6 +34,7 @@ export class Map extends React.Component {
                 </header>
                 <section className="main">
                     <MapSection />
+                    <Profile />
                 </section>
             </section>
             

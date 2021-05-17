@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 .header{
     display: flex;
