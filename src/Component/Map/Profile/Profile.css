@@ -89,4 +89,13 @@
 }
 .btn-profile{
     margin-top: 55px;
+    max-width: 250px;
+}
+.title-profile{
+    font-weight: 700;
+    font-size: 36px;
+}
+.desc{
+    color: #7B7B7B;
+    margin-top: -15px;
 }

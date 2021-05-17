@@ -11,7 +11,7 @@ export class Profile extends React.Component{
             <section className="profile">
                 <div className="profile__wrap">
                     <a href="#close" title="Закрыть" className="close">X</a>
-                    <h3 className="title">Профиль</h3>
+                    <h3 className="title title-profile">Профиль</h3>
                     <p className="desc">Введите платежные данные</p>
                     <form className="card">
                         <div className="card__inf">                           
