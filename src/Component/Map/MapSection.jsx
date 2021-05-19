@@ -16,6 +16,7 @@ export class MapSection extends React.Component {
             center: [30.30, 59.94],
             zoom: 12,
         })
+        
     }
 
     componentWillUnmount(){

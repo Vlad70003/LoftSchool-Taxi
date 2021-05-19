@@ -5,19 +5,27 @@ import {MapSection} from './MapSection.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
-import { Profile } from './Profile/Profile'
+import { Profile } from './Profile/Profile';
+
 
 export class Map extends React.Component {
 
     constructor(props){
         super(props);
         this.logOut = this.logOut.bind(this);
+        this.pageTo = this.pageTo.bind(this);
+        this.state = {
+            thisPage: "map",
+        };
     }
 
     logOut(event){
         event.preventDefault();
         this.props.pageTo('loginWindow');
         this.props.logOut();
+    }
+    pageTo(page){
+        this.setState({thisPage: page});
     }
 
 
@@ -27,14 +35,14 @@ export class Map extends React.Component {
                 <header className="header">
                     <img src={logo} alt="logo"/>
                     <nav className="navigation">
-                        <a href="" className="nav-link">Карта</a>
-                        <a href="" className="nav-link">Профиль</a>
+                        <a href="" className="nav-link" >Карта</a>
+                        <a href="" className="nav-link" >Профиль</a>
                         <a href="" className="nav-link" onClick={this.logOut}>Выйти</a>
                     </nav>
                 </header>
                 <section className="main">
-                    <MapSection />
-                    <Profile />
+                    {this.state.thisPage === 'map' && <MapSection />}
+                    {this.state.thisPage === 'profile' && <Profile />}
                 </section>
             </section>
             
