@@ -3,6 +3,7 @@ import './LoginModal.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authenticate } from '../../../actions';
+import { Link, Route, Switch } from 'react-router-dom';
 
 
 export class LoginModal extends React.Component {

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 import { Profile } from './Profile/Profile';
 import { Link, Route, Router, Switch } from 'react-router-dom';
-
+import { PrivateRoute} from '../../PrivateRouter'
 
 export class Map extends React.Component {
 
@@ -37,8 +37,11 @@ export class Map extends React.Component {
                 </header>
                 <section className="main">
                     <Switch>
-                        <Route exact path="/" component={MapSection} />
-                        <Route path="/profile" component={Profile} />
+                        <PrivateRoute exact path="/" component={MapSection} />
+                        <PrivateRoute path="/profile" >
+                            <MapSection />
+                            <Profile/>
+                        </PrivateRoute>
                     </Switch>
                 </section>
             </section>

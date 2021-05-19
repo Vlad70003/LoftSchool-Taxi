@@ -1,6 +1,7 @@
 import React from 'react';
 import './RegModal.css';
 import PropTypes from 'prop-types';
+import { Link, Route, Switch } from 'react-router-dom';
 
 
 export class RegModal extends React.Component {

@@ -11,6 +11,7 @@
     align-items: center;
     padding: 20px;
     background: #1C1A19;
+    z-index: 999999;
 }
 .nav-link{
     color: white;

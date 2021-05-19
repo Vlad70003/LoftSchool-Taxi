@@ -4,6 +4,7 @@ import {LoginModalWithAuth} from './LoginModal/LoginModal.jsx';
 import {RegModalWithAuth} from './RegModal/RegModal.jsx';
 import logo from './img/logo.svg';
 import PropTypes from 'prop-types';
+import { Link, Route, Switch } from 'react-router-dom';
 
 
 export class Login extends React.Component{
@@ -21,6 +22,7 @@ export class Login extends React.Component{
 
     render(){
         return (
+
             <section className="section-login" data-testid="section-login">
                 <section className="left-section">
                     <img src={logo} alt="logo"/>
