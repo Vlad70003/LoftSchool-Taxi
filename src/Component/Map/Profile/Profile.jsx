@@ -1,7 +1,14 @@
 import React from 'react';
 import './Profile.css';
 import logo from '../img/logo-card.svg';
-import decoration from '../img/decor-card-first.svg'
+import decoration from '../img/decor-card-first.svg';
+import ReactDom from 'react-dom';
+
+class ModalProfile extends React.Component{
+    render() {
+        return ReactDom.createPortal(this.props.children, this.props.domNode)
+    }
+}
 
 export class Profile extends React.Component{
     constructor(props){
@@ -36,9 +43,9 @@ export class Profile extends React.Component{
 
     render(){
         return(
-            <section className="profile">
+            <ModalProfile domNode={document.querySelector("#modal")}>
+                <section className="profile">
                 <div className="profile__wrap">
-                    <a href="#close" title="Закрыть" className="close">X</a>
                     <h3 className="title title-profile">Профиль</h3>
                     <p className="desc">Введите платежные данные</p>
                     <form className="card">
@@ -84,6 +91,7 @@ export class Profile extends React.Component{
                     <button className="button btn-profile">Сохранить</button>
                 </div>
             </section>
+            </ModalProfile>           
         )
     }
 }
