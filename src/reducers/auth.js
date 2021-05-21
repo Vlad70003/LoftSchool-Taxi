@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, CARDREGISTRATION} from '../actions.js';
+import {LOG_IN, LOG_OUT, SAVE_CARD} from '../actions.js';
 
 const initialState = {
 	isLoggedIn: false,
@@ -18,7 +18,7 @@ export default function(state = initialState, action){
     case LOG_OUT: {
     return {isLoggedIn: false}
     }
-    case CARDREGISTRATION: {
+    case SAVE_CARD: {
       if(action.cardNumber.payload == undefined || 
         action.expiryDate.payload == undefined || 
         action.cardName.payload == undefined || 

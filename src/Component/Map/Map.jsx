@@ -5,7 +5,7 @@ import {MapSection} from './MapSection.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
-import { Profile } from './Profile/Profile';
+import { AuthProfile } from './Profile/Profile';
 import { Link, Route, Router, Switch } from 'react-router-dom';
 import { PrivateRoute} from '../../PrivateRouter'
 
@@ -40,7 +40,7 @@ export class Map extends React.Component {
                         <PrivateRoute exact path="/" component={MapSection} />
                         <PrivateRoute path="/profile" >
                             <MapSection />
-                            <Profile/>
+                            <AuthProfile/>
                         </PrivateRoute>
                     </Switch>
                 </section>

@@ -3,6 +3,8 @@ import './Profile.css';
 import logo from '../img/logo-card.svg';
 import decoration from '../img/decor-card-first.svg';
 import ReactDom from 'react-dom';
+import { connect } from 'react-redux';
+import { saveCard } from '../../../actions';
 
 class ModalProfile extends React.Component{
     render() {
@@ -10,7 +12,7 @@ class ModalProfile extends React.Component{
     }
 }
 
-export class Profile extends React.Component{
+class Profile extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -51,7 +53,7 @@ export class Profile extends React.Component{
     }
     saveCard = (event) => {
         event.preventDefault();
-        this.props.cardregistration( this.state.number, this.state.date, this.state.name, this.state.cvc);
+        this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc);
     }
 
     render(){
@@ -108,3 +110,8 @@ export class Profile extends React.Component{
         )
     }
 }
+
+export const AuthProfile = connect(
+    state => ({isLoggedIn: state.isLoggedIn}),
+    { saveCard }
+)(Profile)
