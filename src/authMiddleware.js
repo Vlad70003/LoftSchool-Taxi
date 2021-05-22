@@ -15,13 +15,13 @@ export const authMiddleware = ( store ) => ( next ) => async (action) => {
         next(action);
     }
 
-    // if (action.type === SAVE_CARD){
-    //     let {cardNumber, expiryDate, cardName, cvc, token} = action.payload;
-    //     let success = await serverSaveCard(cardNumber, expiryDate, cardName, cvc, token);
-    //     if(success){
-    //         store.dispatch(saveCard(cardNumber, expiryDate, cardName, cvc, token));
-    //     }
-    // } else {
-    //     next(action);
-    // }
+    if (action.type === SAVE_CARD){
+        let {cardNumber, expiryDate, cardName, cvc, token} = action.payload;
+        let success = await serverSaveCard(cardNumber, expiryDate, cardName, cvc, token);
+        if(success){
+            store.dispatch(saveCard(cardNumber, expiryDate, cardName, cvc, token));
+        }
+    } else {
+        next(action);
+    }
 }

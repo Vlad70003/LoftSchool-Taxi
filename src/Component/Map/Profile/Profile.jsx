@@ -20,14 +20,12 @@ class Profile extends React.Component{
             number: "0000 0000 0000 0000",
             name: '',
             cvc: '',
+            token: 'AUTH_TOKEN',
 
 
         }
-        this.handleChangeNumber = this.handleChangeNumber.bind(this);
-        this.handleChangeDate = this.handleChangeDate.bind(this);
-        this.placeholder = this.placeholder.bind(this);
     }
-    handleChangeNumber(event){
+    handleChangeNumber = (event) => {
         if(event.target.value.length > 0){
             this.setState({number: event.target.value});
         }else{
@@ -35,7 +33,7 @@ class Profile extends React.Component{
         }
     }
 
-    handleChangeDate(event){
+    handleChangeDate = (event) => {
         if(event.target.value.length > 0){
             this.setState({date: event.target.value});
         }else{
@@ -48,12 +46,12 @@ class Profile extends React.Component{
     handleCvc = (event) => {
         this.setState({cvc: event.target.value});
     }
-    placeholder(placeholder){
+    placeholder = (placeholder) => {
        return placeholder.length == 0 ? "00/00" : placeholder;
     }
     saveCard = (event) => {
         event.preventDefault();
-        this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc);
+        this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc, this.state.token);
     }
 
     render(){
@@ -103,7 +101,7 @@ class Profile extends React.Component{
                             </div>
                         </div>
                     </form>
-                    <button className="button btn-profile">Сохранить</button>
+                    <input type="submit" value='Сохранить' className="button btn-profile" />
                 </div>
             </section>
             </ModalProfile>           

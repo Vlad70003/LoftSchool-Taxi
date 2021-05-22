@@ -93,6 +93,8 @@ close:active .profile{
 .btn-profile{
     margin-top: 55px;
     max-width: 250px;
+    text-align: center;
+    
 }
 .title-profile{
     font-weight: 700;

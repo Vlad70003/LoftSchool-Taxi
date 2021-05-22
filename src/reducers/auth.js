@@ -2,7 +2,7 @@ import {LOG_IN, LOG_OUT, SAVE_CARD} from '../actions.js';
 
 const initialState = {
 	isLoggedIn: false,
-  saveCard: Boolean,
+  saveCard: false,
   cardNumber: '',
   expiryDate: '',
   cardName: '',
@@ -13,7 +13,9 @@ const initialState = {
 export default function(state = initialState, action){
 	switch(action.type) {
   	case LOG_IN: {
-    return {isLoggedIn: true}
+    return {
+      isLoggedIn: true
+    }
     }
     case LOG_OUT: {
     return {isLoggedIn: false}
