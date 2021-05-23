@@ -1,11 +1,17 @@
 import React from 'react';
 import mapbox from 'mapbox-gl';
+import { connect } from 'react-redux';
+import { logOut } from '../../actions';
 
-export class MapSection extends React.Component {
+
+class MapSection extends React.Component {
     constructor(props){
         super(props);
         this.map = null;
         this.mapConteiner = React.createRef();
+        this.state = {
+            
+        }
     }
 
     componentDidMount(){
@@ -31,3 +37,8 @@ export class MapSection extends React.Component {
         )
     }
 }
+
+export default connect(
+    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}),
+    null
+)(MapSection);

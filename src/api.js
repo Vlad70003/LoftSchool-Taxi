@@ -11,6 +11,7 @@ export const serverLogin = async (logInEmail, logInPassword) => {
 }
 
 export const serverSaveCard = async (cardNumber, expiryDate, cardName, cvc, token) => {
+
     return fetch(`${url}/card`, {
         method: 'POST',
         headers: {

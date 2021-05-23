@@ -21,15 +21,7 @@ export default function(state = initialState, action){
     return {isLoggedIn: false}
     }
     case SAVE_CARD: {
-      if(action.cardNumber.payload == undefined || 
-        action.expiryDate.payload == undefined || 
-        action.cardName.payload == undefined || 
-        action.cvc.payload == undefined || 
-        action.token.payload == undefined){
-          return initialState.saveCard = false;
-        } else {
-          return initialState.saveCard = true;
-        }
+      return {saveCard: true}
     }
 
     default: 

@@ -1,11 +1,12 @@
 import React from 'react';
 import './Map.css';
 import logo from './img/logo.svg';
-import {MapSection} from './MapSection.jsx';
+import  MapSectionAuth  from './MapSection.jsx';
+import { AuthProfile } from './Profile/Profile';
+import { ProfileSuccess } from './Profile/ProfileSuccess';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
-import { AuthProfile } from './Profile/Profile';
 import { Link, Route, Router, Switch } from 'react-router-dom';
 import { PrivateRoute} from '../../PrivateRouter'
 
@@ -13,10 +14,8 @@ export class Map extends React.Component {
 
     constructor(props){
         super(props);
-        this.logOut = this.logOut.bind(this);
     }
-
-    logOut(event){
+    logOut = (event) => {
         event.preventDefault();
         this.props.pageTo('loginWindow');
         this.props.logOut();
@@ -37,11 +36,13 @@ export class Map extends React.Component {
                 </header>
                 <section className="main">
                     <Switch>
-                        <PrivateRoute exact path="/" component={MapSection} />
-                        <PrivateRoute path="/profile" >
-                            <MapSection />
-                            <AuthProfile/>
+                        <PrivateRoute exact path="/" component={ MapSectionAuth }>
+                            <MapSectionAuth />
                         </PrivateRoute>
+                        <PrivateRoute path="/profile" component={ MapSectionAuth }>
+                            <MapSectionAuth />
+                            {this.props.saveCard ? <ProfileSuccess /> : <AuthProfile />}
+                        </PrivateRoute>                   
                     </Switch>
                 </section>
             </section>
@@ -51,7 +52,7 @@ export class Map extends React.Component {
 }
 
 export let MapWithAuth = connect(
-    state => ({isLoggedIn: state.isLoggedIn}),
+    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}),
     {logOut}
 )(Map);
 

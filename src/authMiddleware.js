@@ -18,7 +18,7 @@ export const authMiddleware = ( store ) => ( next ) => async (action) => {
         let {cardNumber, expiryDate, cardName, cvc, token} = action.payload;
         let success = await serverSaveCard(cardNumber, expiryDate, cardName, cvc, token);
         if(success.success){
-            store.dispatch(saveCard(cardNumber, expiryDate, cardName, cvc, token));
+            store.dispatch(saveCard());
         }
     } else {
         next(action);
