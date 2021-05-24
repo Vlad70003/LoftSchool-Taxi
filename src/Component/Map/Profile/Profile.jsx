@@ -5,6 +5,7 @@ import decoration from '../img/decor-card-first.svg';
 import ReactDom from 'react-dom';
 import { connect } from 'react-redux';
 import { saveCard } from '../../../actions';
+import { Link } from 'react-router-dom';
 
 class ModalProfile extends React.Component{
     render() {
@@ -94,7 +95,7 @@ class Profile extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value='Сохранить' className="button btn-profile" />
+                        <input type="submit" value='Сохранить' className="button btn-profile" />                     
                     </form>
                     
                 </div>

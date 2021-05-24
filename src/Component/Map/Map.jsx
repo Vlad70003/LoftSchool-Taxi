@@ -31,7 +31,6 @@ export class Map extends React.Component {
                         <Link className="nav-link" to="/">Карта</Link>
                         <Link className="nav-link" to="/profileModal">Профиль</Link>
                         <Link className="nav-link" onClick={this.logOut}>Выйти</Link>
-                        {/* <a href="" className="nav-link" onClick={this.logOut}>Выйти</a> */}
                     </nav>
                 </header>
                 <section className="main">
@@ -39,10 +38,19 @@ export class Map extends React.Component {
                         <PrivateRoute exact path="/" >
                             <MapSectionAuth />
                         </PrivateRoute>
+                        {!this.props.saveCard && 
                         <PrivateRoute path="/profileModal" >
                             <MapSectionAuth />                            
-                            {this.props.saveCard ? <ProfileSuccess /> : <AuthProfile />}
-                        </PrivateRoute>                   
+                            <AuthProfile />
+                        </PrivateRoute> 
+                        }
+                        {this.props.saveCard && 
+                        <PrivateRoute path="/profileModal" >
+                            <MapSectionAuth />                            
+                            <ProfileSuccess />
+                        </PrivateRoute> 
+                        }
+                                       
                     </Switch>
                 </section>
             </section>

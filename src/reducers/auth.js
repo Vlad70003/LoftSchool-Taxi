@@ -21,7 +21,11 @@ export default function(state = initialState, action){
     return {isLoggedIn: false}
     }
     case SAVE_CARD: {
-      return {saveCard: true}
+      return {saveCard: true, 
+        cardNumber: action.cardNumber, 
+        expiryDate: action.expiryDate, 
+        cardName: action.cardName, 
+        cvc: action.cvc}
     }
 
     default: 

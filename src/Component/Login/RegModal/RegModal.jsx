@@ -7,12 +7,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 export class RegModal extends React.Component {
 constructor(props){
     super(props);
-    this.navigateTo = this.navigateTo.bind(this);
 }
-
-    navigateTo() {
-        return this.props.navigateTo('loginModal');
-    }
 
     render(){
         return(
