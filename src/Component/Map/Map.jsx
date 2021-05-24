@@ -17,7 +17,6 @@ export class Map extends React.Component {
     }
     logOut = (event) => {
         event.preventDefault();
-        this.props.pageTo('loginWindow');
         this.props.logOut();
     }
 
@@ -30,17 +29,18 @@ export class Map extends React.Component {
                     <img src={logo} alt="logo"/>
                     <nav className="navigation">
                         <Link className="nav-link" to="/">Карта</Link>
-                        <Link className="nav-link" to="/profile">Профиль</Link>
-                        <a href="" className="nav-link" onClick={this.logOut}>Выйти</a>
+                        <Link className="nav-link" to="/profileModal">Профиль</Link>
+                        <Link className="nav-link" onClick={this.logOut}>Выйти</Link>
+                        {/* <a href="" className="nav-link" onClick={this.logOut}>Выйти</a> */}
                     </nav>
                 </header>
                 <section className="main">
                     <Switch>
-                        <PrivateRoute exact path="/" component={ MapSectionAuth }>
+                        <PrivateRoute exact path="/" >
                             <MapSectionAuth />
                         </PrivateRoute>
-                        <PrivateRoute path="/profile" component={ MapSectionAuth }>
-                            <MapSectionAuth />
+                        <PrivateRoute path="/profileModal" >
+                            <MapSectionAuth />                            
                             {this.props.saveCard ? <ProfileSuccess /> : <AuthProfile />}
                         </PrivateRoute>                   
                     </Switch>

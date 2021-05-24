@@ -36,7 +36,7 @@ constructor(props){
                         <button className="button">Зарегистрироваться</button>
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Уже зарегистрирован?</label>
-                            <a className="reg-link" name="reg" data-testid="content-input"  id="reg" onClick = {this.navigateTo}>Войти</a>
+                            <Link className="reg-link" name="reg" data-testid="content-input"  id="reg" to="/">Войти</Link>
                         </div>
                         
                     </form>

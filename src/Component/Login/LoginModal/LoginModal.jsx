@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { authenticate } from '../../../actions';
 import { Link, Route, Switch } from 'react-router-dom';
 
-
 export class LoginModal extends React.Component {
     constructor(props){
         super(props);
@@ -13,19 +12,16 @@ export class LoginModal extends React.Component {
             email: '',
             password: '',
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
     }
 
-    handleSubmit(event){
+    handleSubmit = (event) => {
         event.preventDefault();
         this.props.authenticate( this.state.email, this.state.password);
     }
-    handleChangeEmail(event){
+    handleChangeEmail = (event) => {
         this.setState({email: event.target.value});
     }
-    handleChangePassword(event){
+    handleChangePassword = (event) => {
         this.setState({password: event.target.value});
     }
 
@@ -39,10 +35,10 @@ export class LoginModal extends React.Component {
                         <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail} data-testid="form-input" />
                         <label htmlFor="password">Пароль</label>
                         <input type="password" name="password" id="password" placeholder="Пароль*" className="input" value={this.state.password} onChange={this.handleChangePassword} />
-                        <input type="submit" value="Отправить" className="button" onClick={() => this.props.pageTo('map')} />
+                        <input type="submit" value="Отправить" className="button" />
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Новый пользователь?</label>
-                            <a className="reg-link" name="reg" id="reg" onClick={() => this.props.navigateTo('regModal')}>Регистрация</a>
+                            <Link className="reg-link" name="reg" id="reg" to="/regModal">Регистрация</Link>
                         </div>                      
                     </form>
                 </div>
