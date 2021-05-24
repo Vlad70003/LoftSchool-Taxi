@@ -1,13 +1,13 @@
-import {LOG_IN, LOG_OUT, SAVE_CARD} from '../actions.js';
+import {LOG_IN, LOG_OUT, SAVE_CARD, SAVE_CARD_SUCCESS} from '../actions.js';
 
 const initialState = {
 	isLoggedIn: false,
   saveCard: false,
-  cardNumber: '',
-  expiryDate: '',
-  cardName: '',
-  cvc: '',
-  token: ''
+  // cardNumber: '',
+  // expiryDate: '',
+  // cardName: '',
+  // cvc: '',
+  // token: ''
 }
 
 export default function(state = initialState, action){
@@ -20,12 +20,8 @@ export default function(state = initialState, action){
     case LOG_OUT: {
     return {isLoggedIn: false}
     }
-    case SAVE_CARD: {
-      return {saveCard: true, 
-        cardNumber: action.cardNumber, 
-        expiryDate: action.expiryDate, 
-        cardName: action.cardName, 
-        cvc: action.cvc}
+    case SAVE_CARD_SUCCESS: {
+      return {saveCard: true}
     }
 
     default: 

@@ -34,24 +34,13 @@ export class Map extends React.Component {
                     </nav>
                 </header>
                 <section className="main">
-                    <Switch>
                         <PrivateRoute exact path="/" >
                             <MapSectionAuth />
                         </PrivateRoute>
-                        {!this.props.saveCard && 
                         <PrivateRoute path="/profileModal" >
                             <MapSectionAuth />                            
-                            <AuthProfile />
-                        </PrivateRoute> 
-                        }
-                        {this.props.saveCard && 
-                        <PrivateRoute path="/profileModal" >
-                            <MapSectionAuth />                            
-                            <ProfileSuccess />
-                        </PrivateRoute> 
-                        }
-                                       
-                    </Switch>
+                            {this.props.saveCard ? <ProfileSuccess /> : <AuthProfile />}
+                        </PrivateRoute>
                 </section>
             </section>
             
