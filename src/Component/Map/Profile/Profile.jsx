@@ -95,7 +95,7 @@ class Profile extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value='Сохранить' className="button btn-profile" />                     
+                        <input type="submit" value='Сохранить' className="button btn-profile"></input>
                     </form>
                     
                 </div>

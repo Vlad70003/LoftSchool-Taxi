@@ -2,8 +2,8 @@ import React from 'react';
 import './Map.css';
 import logo from './img/logo.svg';
 import  MapSectionAuth  from './MapSection.jsx';
-import { AuthProfile } from './Profile/Profile';
-import { ProfileSuccess } from './Profile/ProfileSuccess';
+import { AuthProfile } from './Profile/Profile.jsx';
+import { ProfileSuccess } from './Profile/ProfileSuccess.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
@@ -34,12 +34,12 @@ export class Map extends React.Component {
                     </nav>
                 </header>
                 <section className="main">
-                        <PrivateRoute exact path="/" >
+                        <PrivateRoute path="/" >
                             <MapSectionAuth />
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
-                            <MapSectionAuth />                            
-                            {this.props.saveCard ? <ProfileSuccess /> : <AuthProfile />}
+                            {this.props.saveCard && <ProfileSuccess />}
+                            {!this.props.saveCard && <AuthProfile />}
                         </PrivateRoute>
                 </section>
             </section>

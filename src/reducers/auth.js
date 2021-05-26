@@ -10,18 +10,22 @@ const initialState = {
   // token: ''
 }
 
-export default function(state = initialState, action){
+export default function auth(state = initialState, action){
 	switch(action.type) {
   	case LOG_IN: {
     return {
-      isLoggedIn: true
+      ...state, isLoggedIn: true
     }
     }
     case LOG_OUT: {
-    return {isLoggedIn: false}
+    return {
+      ...state, isLoggedIn: false
+    }
     }
     case SAVE_CARD_SUCCESS: {
-      return {saveCard: true}
+      return {
+        ...state, saveCard: true
+      }
     }
 
     default: 
