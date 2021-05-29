@@ -5,6 +5,7 @@ import decoration from '../img/decor-card-first.svg';
 import ReactDom from 'react-dom';
 import { connect } from 'react-redux';
 import { saveCard } from '../../../actions';
+
 import { Link } from 'react-router-dom';
 
 class ModalProfile extends React.Component{
@@ -21,30 +22,42 @@ class Profile extends React.Component{
             number: '',
             name: '',
             cvc: '',
-            token: 'AUTH_TOKEN',
-
-
+            characterCount: 0,
         }
     }
-    handleChangeNumber = (event) => {
-        (event.target.value.length > 0) ? this.setState({number: event.target.value}) : this.setState({number: "0000 0000 0000 0000"});
+
+    cardnumEnter = (e) => {
+        if (e.keyCode !== 8 && e.keyCode !== 46) {
+            let newValue = e.target.value.replace(/\D/g, "");
+            newValue = newValue.replace(/(.{4})/g, "$1 ");
+            e.target.value = newValue;
+            this.setState({ number: e.target.value });
+        }
+        if(e.keyCode === 8) {
+            this.setState({ number: e.target.value });
+        }
     }
 
-    handleChangeDate = (event) => {
-        (event.target.value.length > 0) ? this.setState({date: event.target.value}) : this.setState({date: "00/00"})  
+    cardDateEnter = (e) => {
+        const target = e.target;
+        if(target.value.length === 2 && this.state.characterCount < target.value.length) {
+            target.value = target.value + "/";
+        }
+        this.setState({date: target.value});
+        this.setState({characterCount: target.value.length});
     }
+
     handleName = (event) => {
         this.setState({name: event.target.value});
     }
+
     handleCvc = (event) => {
         this.setState({cvc: event.target.value});
     }
-    placeholder = (placeholder) => {
-       return placeholder.length == 0 ? "00/00" : placeholder;
-    }
+
     handleSubmit = (event) => {
         event.preventDefault();
-        if( typeof this.state.name == 'string' && this.state.date.length == 5  && this.state.cvc.length == 3){
+        if( this.state.number.length == 20 && typeof this.state.name == 'string' && this.state.date.length == 5  && this.state.cvc.length == 3){
             this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc, this.state.token);
         }else{
             let error = document.querySelector('.error-profile');
@@ -69,16 +82,16 @@ class Profile extends React.Component{
                                 </div>
                                 <div className="card__input">
                                     <label htmlFor="card-number" className="label">Номер карты</label>
-                                    <input type="text" name="card-number" className="input" id="card-number" placeholder={this.placeholder(this.state.number)} onChange={this.handleChangeNumber}/>
+                                    <input type="text" placeholder="Номер карты*" name="card-number" className="input" id="card-number" onChange={this.cardnumEnter} maxLength="19"/>
                                 </div>
                                 <div className="card__edditions-inf">
                                     <div className="date">
                                         <label htmlFor="date" className="label">MM/YY</label>
-                                        <input type="text" name="date" className="input" id="name" placeholder={this.placeholder(this.state.date)} onChange={this.handleChangeDate} />
+                                        <input type="text" placeholder="MM/YY*" name="date" className="input" id="name" onChange={this.cardDateEnter} maxLength="5"/>
                                     </div>
                                     <div className="cvc">
                                         <label htmlFor="cvc" className="label">CVC</label>
-                                        <input type="text" name="cvc" className="input" id="name" placeholder="CVC*" onChange={this.handleCvc}/>
+                                        <input type="text" placeholder="CVC*" name="cvc" className="input" id="name" placeholder="CVC*" onChange={this.handleCvc} maxLength="3"/>
                                     </div>
                                     </div>
                             </div>
@@ -114,6 +127,6 @@ class Profile extends React.Component{
 }
 
 export const AuthProfile = connect(
-    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}),
+    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}, {cardNumber: state.cardNumber}, {expiryDate: state.expiryDate}, {cardName: state.cardName}, {cvc: state.cvc}),
     { saveCard }
 )(Profile)

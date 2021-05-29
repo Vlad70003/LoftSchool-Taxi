@@ -10,10 +10,11 @@ const initialState = {
 	isLoggedIn: false,
   saveCard: false,
   tokenLogin: false,
-  // cardNumber: '',
-  // expiryDate: '',
-  // cardName: '',
-  // cvc: '',
+  cardNumber: '',
+  expiryDate: '',
+  cardName : '',
+  cvc: '',
+
 }
 if(userLogin !== null){
   initialState.tokenLogin = userLogin[2];
@@ -29,6 +30,10 @@ export default function auth(state = initialState, action){
     return {
       ...state, 
       isLoggedIn: true,
+      cardNumber: action.payload,
+      expiryDate: action.payload,
+      cardName: action.payload,
+      cvc: action.payload,
     }
     }
     case LOG_OUT: {
@@ -39,7 +44,9 @@ export default function auth(state = initialState, action){
     }
     case SAVE_CARD_SUCCESS: {
       return {
-        ...state, saveCard: true
+        ...state, 
+        saveCard: true, 
+
       }
     }
     case SAVE_CARD_SUCCESS_OUT: {
