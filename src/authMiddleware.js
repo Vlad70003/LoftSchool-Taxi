@@ -8,6 +8,8 @@ export const authMiddleware = ( store ) => ( next ) => async (action) => {
         let {email, password} = action.payload;
         let success = await serverLogin(email, password);
         if(success.success){
+            let storage = localStorage;
+            storage['userLogin'] = JSON.stringify([email, password, success.token]);
             store.dispatch(logIn());
         }else {
             let conteiner = document.querySelector('.error-message');
