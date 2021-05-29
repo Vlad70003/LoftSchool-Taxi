@@ -35,11 +35,12 @@ export class LoginModal extends React.Component {
                         <input type="email" name="email" id="email" placeholder="mail@mail.com" className="input" value={this.state.email} onChange={this.handleChangeEmail} data-testid="form-input" />
                         <label htmlFor="password">Пароль</label>
                         <input type="password" name="password" id="password" placeholder="Пароль*" className="input" value={this.state.password} onChange={this.handleChangePassword} />
+                        <div className="error-message">Неверный логин или пароль!</div>
                         <input type="submit" value="Отправить" className="button" />
                         <div className="new-user">
                             <label htmlFor="reg" className="new-user__label">Новый пользователь?</label>
                             <Link className="reg-link" name="reg" id="reg" to="/regModal">Регистрация</Link>
-                        </div>                      
+                        </div>                 
                     </form>
                 </div>
         )

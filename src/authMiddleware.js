@@ -9,6 +9,9 @@ export const authMiddleware = ( store ) => ( next ) => async (action) => {
         let success = await serverLogin(email, password);
         if(success.success){
             store.dispatch(logIn());
+        }else {
+            let conteiner = document.querySelector('.error-message');
+            conteiner.style.opacity = 1;
         }
     } else {
         next(action);
