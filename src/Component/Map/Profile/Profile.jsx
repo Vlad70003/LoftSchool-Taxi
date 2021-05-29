@@ -17,8 +17,8 @@ class Profile extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            date: "",
-            number: "",
+            date: '',
+            number: '',
             name: '',
             cvc: '',
             token: 'AUTH_TOKEN',
@@ -44,7 +44,13 @@ class Profile extends React.Component{
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc, this.state.token);
+        if( typeof this.state.name == 'string' && this.state.date.length == 5  && this.state.cvc.length == 3){
+            this.props.saveCard( this.state.number, this.state.date, this.state.name, this.state.cvc, this.state.token);
+        }else{
+            let error = document.querySelector('.error-profile');
+            error.style.opacity = 1;
+        }
+       
     }
 
     render(){
@@ -77,6 +83,7 @@ class Profile extends React.Component{
                                     </div>
                             </div>
                             <div className="card__rew">
+                            <div className="error-profile">Неверно указаны данные о карте!</div>
                                 <div className="card__rew-inf">
                                     <div className="card__rew-conteiner">
                                         <div className="card__rew-header">
@@ -95,6 +102,7 @@ class Profile extends React.Component{
                                 </div>
                             </div>
                         </div>
+                        
                         <input type="submit" value='Сохранить' className="button btn-profile"></input>
                     </form>
                     
@@ -106,6 +114,6 @@ class Profile extends React.Component{
 }
 
 export const AuthProfile = connect(
-    state => ({isLoggedIn: state.isLoggedIn}),
+    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}),
     { saveCard }
 )(Profile)

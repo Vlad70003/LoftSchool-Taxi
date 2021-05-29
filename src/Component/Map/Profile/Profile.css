@@ -119,3 +119,8 @@ close:active .profile{
     position: absolute;
     left: -15px
 }
+.error-profile{
+    margin-bottom: 5px;
+    color: red;
+    opacity: 0;
+}

@@ -3,7 +3,6 @@ import {LoginWithAuth} from './Component/Login/Login.jsx';
 import {MapWithAuth} from './Component/Map/Map.jsx';
 import './App.css';
 import { connect } from 'react-redux';
-import { Link, Route, Router, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 

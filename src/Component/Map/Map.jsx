@@ -6,15 +6,20 @@ import { AuthProfile } from './Profile/Profile.jsx';
 import { ProfileSuccess } from './Profile/ProfileSuccess.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logOut } from '../../actions';
+import { logOut, saveCard } from '../../actions';
 import { Link, Route, Router, Switch } from 'react-router-dom';
-import { PrivateRoute} from '../../PrivateRouter'
+import { PrivateRoute} from '../../PrivateRouter';
+
 
 export class Map extends React.Component {
 
     constructor(props){
         super(props);
     }
+    saveCardState = () => {
+        this.setState({saveCard: !saveCard})
+    }
+
     logOut = (event) => {
         event.preventDefault();
         this.props.logOut();
@@ -38,8 +43,8 @@ export class Map extends React.Component {
                             <MapSectionAuth />
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
-                            {this.props.saveCard && <ProfileSuccess />}
                             {!this.props.saveCard && <AuthProfile />}
+                            {this.props.saveCard && <ProfileSuccess />}
                         </PrivateRoute>
                 </section>
             </section>
