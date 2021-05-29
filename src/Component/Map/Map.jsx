@@ -3,7 +3,7 @@ import './Map.css';
 import logo from './img/logo.svg';
 import  MapSectionAuth  from './MapSection.jsx';
 import { AuthProfile } from './Profile/Profile.jsx';
-import { ProfileSuccess } from './Profile/ProfileSuccess.jsx';
+import { ProfileSuccessAuth } from './Profile/ProfileSuccess.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut, saveCard } from '../../actions';
@@ -44,7 +44,7 @@ export class Map extends React.Component {
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
                             {!this.props.saveCard && <AuthProfile />}
-                            {this.props.saveCard && <ProfileSuccess />}
+                            {this.props.saveCard && <ProfileSuccessAuth />}
                         </PrivateRoute>
                 </section>
             </section>

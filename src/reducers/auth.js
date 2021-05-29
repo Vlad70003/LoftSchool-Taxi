@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, SAVE_CARD, SAVE_CARD_SUCCESS} from '../actions.js';
+import {LOG_IN, LOG_OUT, SAVE_CARD, SAVE_CARD_SUCCESS, SAVE_CARD_SUCCESS_OUT} from '../actions.js';
 
 ///LocalStorage
 let storage = localStorage;
@@ -40,6 +40,11 @@ export default function auth(state = initialState, action){
     case SAVE_CARD_SUCCESS: {
       return {
         ...state, saveCard: true
+      }
+    }
+    case SAVE_CARD_SUCCESS_OUT: {
+      return { 
+        ...state, saveCard: false
       }
     }
 
