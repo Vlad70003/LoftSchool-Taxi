@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, SAVE_CARD, SAVE_CARD_SUCCESS, SAVE_CARD_SUCCESS_OUT} from '../actions.js';
+import {LOG_IN, LOG_OUT, SAVE_CARD, SAVE_CARD_SUCCESS, SAVE_CARD_SUCCESS_OUT, REGISTRATION_SUCCESS} from '../actions.js';
 
 ///LocalStorage
 let storage = localStorage;
@@ -10,6 +10,7 @@ const initialState = {
 	isLoggedIn: false,
   saveCard: false,
   tokenLogin: false,
+  registration: false,
   cardNumber: '',
   expiryDate: '',
   cardName : '',
@@ -53,6 +54,9 @@ export default function auth(state = initialState, action){
       return { 
         ...state, saveCard: false
       }
+    }
+    case REGISTRATION_SUCCESS: {
+      return {registration: true}
     }
 
     default: 
