@@ -4,6 +4,7 @@ import logo from './img/logo.svg';
 import  MapSectionAuth  from './MapSection.jsx';
 import { AuthProfile } from './Profile/Profile.jsx';
 import { ProfileSuccessAuth } from './Profile/ProfileSuccess.jsx';
+import { TaxiModal } from './TaxiModal/TaxiModal';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut, saveCard } from '../../actions';
@@ -41,6 +42,7 @@ export class Map extends React.Component {
                 <section className="main">
                         <PrivateRoute path="/" >
                             <MapSectionAuth />
+                            <TaxiModal />
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
                             {!this.props.saveCard && <AuthProfile />}

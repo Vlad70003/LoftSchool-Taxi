@@ -7,7 +7,7 @@ let userLogin = JSON.parse(storage.getItem('userLogin'));
 
 
 const initialState = {
-	isLoggedIn: false,
+	isLoggedIn: true,
   saveCard: false,
   tokenLogin: false,
   registration: false,
