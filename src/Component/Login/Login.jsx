@@ -4,7 +4,7 @@ import {LoginModalWithAuth} from './LoginModal/LoginModal.jsx';
 import {RegModalWithAuth} from './RegModal/RegModal.jsx';
 import logo from './img/logo.svg';
 import PropTypes from 'prop-types';
-import { Link, Route, Router, Switch } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 
 
 export class Login extends React.Component{

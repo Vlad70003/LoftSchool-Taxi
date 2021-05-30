@@ -25,17 +25,16 @@ export const saveCardSucces = (cardNumber, expiryDate, cardName, cvc, token) => 
     payload: {cardNumber, expiryDate, cardName, cvc, token}
 })
 
-export const registration = (registration, email, password, name, surname) => ({
+export const registration = (email, password, name, surname) => ({
     type: REGISTRATION,
-    payload: { registration, email, password, name, surname }
+    payload: { email, password, name, surname }
   });
   export const registrationSuccess = (
-    registration,
     email,
     password,
     name,
     surname
   ) => ({
     type: REGISTRATION_SUCCESS,
-    payload: { registration, email, password, name, surname }
+    payload: { email, password, name, surname }
   });
