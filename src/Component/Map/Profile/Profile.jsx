@@ -48,6 +48,7 @@ class Profile extends React.Component{
     }
 
     handleName = (event) => {
+        console.log(this.props.adressList)
         this.setState({name: event.target.value});
     }
 
@@ -127,6 +128,6 @@ class Profile extends React.Component{
 }
 
 export const AuthProfile = connect(
-    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}, {userCard: state.userCard}),
+    state => ({isLoggedIn: state.isLoggedIn, saveCard: state.saveCard, userCard: state.userCard, adressList: state.adressList}),
     { saveCard }
 )(Profile)

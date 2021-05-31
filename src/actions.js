@@ -6,6 +6,8 @@ export const SAVE_CARD_SUCCESS = 'SAVE_CARD_SUCCESS';
 export const SAVE_CARD_SUCCESS_OUT = 'SAVE_CARD_SUCCESS_OUT';
 export const REGISTRATION = "REGISTRATION";
 export const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
+export const LOAD_ADRESS_LIST = "LOAD_ADRESS_LIST";
+export const SAVE_ADRESS_LIST = "SAVE_ADRESS_LIST";
 
 export const logIn = () => ({type: LOG_IN});
 export const logOut = () => ({type: LOG_OUT});
@@ -29,6 +31,7 @@ export const registration = (email, password, name, surname) => ({
     type: REGISTRATION,
     payload: { email, password, name, surname }
   });
+
   export const registrationSuccess = (
     email,
     password,
@@ -38,3 +41,12 @@ export const registration = (email, password, name, surname) => ({
     type: REGISTRATION_SUCCESS,
     payload: { email, password, name, surname }
   });
+
+export const loadAdressList = () => ({
+  type: LOAD_ADRESS_LIST,
+})
+
+export const saveAdressList = (addressList) => ({
+  type: SAVE_ADRESS_LIST,
+  payload: addressList,
+})

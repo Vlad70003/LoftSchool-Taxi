@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT, SAVE_CARD_SUCCESS, SAVE_CARD_SUCCESS_OUT, REGISTRATION_SUCCESS} from '../actions.js';
+import {LOG_IN, LOG_OUT, SAVE_CARD_SUCCESS, SAVE_CARD_SUCCESS_OUT, REGISTRATION_SUCCESS, SAVE_ADRESS_LIST} from '../actions.js';
 
 ///LocalStorage
 let storage = localStorage;
@@ -6,12 +6,12 @@ let userLogin = JSON.parse(storage.getItem('userLogin'));
 
 
 const initialState = {
-	isLoggedIn: true,
+	isLoggedIn: false,
   saveCard: false,
   tokenLogin: false,
   registration: false,
-  userCard: ''
-
+  userCard: '',
+  adressList: '',
 }
 if(userLogin !== null){
   initialState.tokenLogin = userLogin[2];
@@ -51,7 +51,16 @@ export default function auth(state = initialState, action){
       }
     }
     case REGISTRATION_SUCCESS: {
-      return {registration: true}
+      return {
+        ...state, 
+        registration: true
+      }
+    }
+    case SAVE_ADRESS_LIST: {
+      return{
+        ...state, 
+        adressList: action.payload,
+      }
     }
 
     default: 

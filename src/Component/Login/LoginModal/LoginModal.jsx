@@ -2,8 +2,8 @@ import React from 'react';
 import './LoginModal.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { authenticate } from '../../../actions';
-import { Link, Route, Switch } from 'react-router-dom';
+import { authenticate, loadAdressList } from '../../../actions';
+import { Link } from 'react-router-dom';
 
 export class LoginModal extends React.Component {
     constructor(props){
@@ -17,6 +17,7 @@ export class LoginModal extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.authenticate( this.state.email, this.state.password);
+        this.props.loadAdressList();
     }
     handleChangeEmail = (event) => {
         this.setState({email: event.target.value});
@@ -50,7 +51,7 @@ export class LoginModal extends React.Component {
 
 export const LoginModalWithAuth = connect(
     state => ({isLoggedIn: state.isLoggedIn}),
-    { authenticate }
+    { authenticate, loadAdressList }
 )(LoginModal);
 
 LoginModal.propTypes = {
