@@ -5,8 +5,8 @@ import decoration from '../img/decor-card-first.svg';
 import ReactDom from 'react-dom';
 import { connect } from 'react-redux';
 import { saveCard } from '../../../actions';
-
-import { Link } from 'react-router-dom';
+let storage = localStorage;
+let userCard = JSON.parse(storage.getItem('userCard'))
 
 class ModalProfile extends React.Component{
     render() {
@@ -82,12 +82,12 @@ class Profile extends React.Component{
                                 </div>
                                 <div className="card__input">
                                     <label htmlFor="card-number" className="label">Номер карты</label>
-                                    <input type="text" placeholder="Номер карты*" name="card-number" className="input" id="card-number" onChange={this.cardnumEnter} maxLength="19"/>
+                                    <input type="text" placeholder="Номер карты*" name="card-number" value={this.state.number} className="input" id="card-number" onChange={this.cardnumEnter} maxLength="19"/>
                                 </div>
                                 <div className="card__edditions-inf">
                                     <div className="date">
                                         <label htmlFor="date" className="label">MM/YY</label>
-                                        <input type="text" placeholder="MM/YY*" name="date" className="input" id="name" onChange={this.cardDateEnter} maxLength="5"/>
+                                        <input type="text" placeholder="MM/YY*" name="date" value={this.state.date} className="input" id="name" onChange={this.cardDateEnter} maxLength="5"/>
                                     </div>
                                     <div className="cvc">
                                         <label htmlFor="cvc" className="label">CVC</label>
@@ -101,9 +101,9 @@ class Profile extends React.Component{
                                     <div className="card__rew-conteiner">
                                         <div className="card__rew-header">
                                             <img src={logo} alt="logo" />
-                                            <div className="card__date">{this.state.date}</div>
+                                            <div className="card__date">{ this.props.userCard.expiryDate == undefined ? this.state.date : this.props.userCard.expiryDate }</div>
                                         </div>
-                                        <div className="card__number">{this.state.number}</div>
+                                        <div className="card__number">{ this.props.userCard.cardNumber == undefined ? this.state.number : this.props.userCard.cardNumber }</div>
                                         <div className="card__footer">
                                             <img src={decoration} alt="decor" />
                                             <div className="second-decoration-card">
@@ -127,6 +127,6 @@ class Profile extends React.Component{
 }
 
 export const AuthProfile = connect(
-    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}, {cardNumber: state.cardNumber}, {expiryDate: state.expiryDate}, {cardName: state.cardName}, {cvc: state.cvc}),
+    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}, {userCard: state.userCard}),
     { saveCard }
 )(Profile)

@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   
-
+  
   render(){
     return (
       <section className="mapSection">
@@ -23,6 +23,6 @@ class App extends React.Component {
 }
 
 export default connect(
-	state => ({isLoggedIn: state.isLoggedIn}),
+	state => ({isLoggedIn: state.isLoggedIn, userCard: state.userCard}),
   null
 )(App);

@@ -41,7 +41,9 @@ export class Map extends React.Component {
                 </header>
                 <section className="main">
                         <PrivateRoute path="/" >
-                            <MapSectionAuth />
+                            <MapSectionAuth />                          
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/" >
                             <TaxiModal />
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
