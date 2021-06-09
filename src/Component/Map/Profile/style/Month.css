@@ -1,0 +1,88 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+}
+.data-modal__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 400;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+    min-width: 300px;
+    min-height: 600px;
+}
+.data-modal__section > div {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+	margin: 10% auto;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+    min-width: 300px;
+    min-height: 600px;
+}
+.header__date{
+    width: 100%;
+    height: 22%;
+    background: #FDBF5A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px 15px;
+}
+.list__month{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.column{
+    display: flex;
+}
+.buttons-wrapper{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: flex-end;
+}
+.year__button{
+    background: none;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    color: #FDBF5A;
+    cursor: pointer;
+}
+.element__month{
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.element__month:hover{
+    color: #FDBF5A;
+}
+.month-section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

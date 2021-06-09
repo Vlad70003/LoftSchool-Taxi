@@ -1,0 +1,15 @@
+.date-input{
+    box-sizing:content-box;
+    width: 100%;
+    border: none;
+    padding: 10px 0px;
+    font-weight: 400;
+    font-size: 18px;
+    border-bottom: 1px solid grey;
+    height: 22px;
+    display: block;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text);
+    color: gray;
+}

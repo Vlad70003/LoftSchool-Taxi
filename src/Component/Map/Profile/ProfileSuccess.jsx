@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ProfileSuccess.css';
+import './style/ProfileSuccess.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { saveCardOut } from '../../../actions';

@@ -10,7 +10,7 @@ export class TaxiModal extends Component{
             <div className="modal-wrapper">
                 <div className="path">
                     <select id="point">
-                        <option value="Point 1">Point 1</option>
+                        <option value="Point 1" className="option">Point 1</option>
                         <option value="Point 2">Point 2</option>
                     </select>
                     <select id="point">
