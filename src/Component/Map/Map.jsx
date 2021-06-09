@@ -24,6 +24,7 @@ export class Map extends React.Component {
     logOut = (event) => {
         event.preventDefault();
         this.props.logOut();
+
     }
 
 
@@ -47,8 +48,8 @@ export class Map extends React.Component {
                             <TaxiModal />
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
-                            {!this.props.saveCard && <AuthProfile />}
-                            {this.props.saveCard && <ProfileSuccessAuth />}
+                            {!this.props.saveCard && <AuthProfile /> }
+                            {this.props.saveCard && <ProfileSuccessAuth /> }
                         </PrivateRoute>
                 </section>
             </section>

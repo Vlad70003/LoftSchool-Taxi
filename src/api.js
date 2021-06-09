@@ -48,10 +48,5 @@ export const serverRegistration = async (
   };
 
   export const serverAddressList = async () => {
-    return fetch(`${url}/addressList`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-    }).then(res => res.json())
+    return fetch(`${url}/addressList`).then(res => res.json())
 }
