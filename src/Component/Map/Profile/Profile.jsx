@@ -78,7 +78,6 @@ class Profile extends React.Component{
         this.setState({date: this.state.month/this.state.year})
         if( this.state.number.length == 20 && typeof this.state.name == 'string' && this.state.cvc.length == 3){
             this.props.saveCard( this.state.number, this.fullDate(this.state.month, this.state.year), this.state.name, this.state.cvc, this.state.token);
-            console.log(this.props.userCard);
         }else{
             let error = document.querySelector('.error-profile');
             error.style.opacity = 1;
@@ -150,6 +149,6 @@ class Profile extends React.Component{
 }
 
 export const AuthProfile = connect(
-    state => ({isLoggedIn: state.isLoggedIn, saveCard: state.saveCard, userCard: state.userCard, adressList: state.adressList}),
+    state => ({isLoggedIn: state.isLoggedIn, saveCard: state.saveCard, userCard: state.userCard }),
     { saveCard }
 )(Profile)

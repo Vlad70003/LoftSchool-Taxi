@@ -5,8 +5,8 @@ import { serverAddressList } from "../api";
 
 
 export function* addressListSaga(){
-  const {addressList} = yield call(serverAddressList);
-  yield put(saveAdressList(addressList));
+  const addressList = yield call(serverAddressList);
+  yield put(saveAdressList(addressList.addresses));
 }
 
 export function* addressSaga(){
