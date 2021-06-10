@@ -34,8 +34,8 @@ class TaxiModal extends Component{
         return(
             <div className="modal-wrapper" >
                 <div className="path">
-                   <input type="text" />
-                   <input type="text" />
+                   <input type="text" placeholder='Откуда' className="path__input"/>
+                   <input type="text" placeholder='Куда' className="path__input"/>
                 </div>
                 <ul className="class-taxi__list">
                     <div className="class-taxi__item-wrapper">
