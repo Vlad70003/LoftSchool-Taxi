@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { loadRoute } from '../../../actions';
 import './TaxiModal.css';
 import bmw  from '../img/bmw-pic.svg';
 import tesla from '../img/tesla-pic.svg';
@@ -85,6 +86,13 @@ class TaxiModal extends Component{
         }
     }
 
+    handleReadyRoute = (event) => {
+        event.preventDefault();
+        if(this.state.firstAddress !== '' && this.state.secondAddress !== ''){
+            this.props.loadRoute( this.state.firstAddress, this.state.secondAddress);
+        }
+    }
+
     render(){
         return(
             <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList)}>
@@ -126,7 +134,7 @@ class TaxiModal extends Component{
                         </li>
                     </div>
                     <div className="button__wrapper">
-                        <button className="button">Заказать</button>
+                        <button className="button" onClick={this.handleReadyRoute}>Заказать</button>
                     </div>
                 </ul>
                 
@@ -136,5 +144,5 @@ class TaxiModal extends Component{
 }
 export const AuthTaxiModal = connect(
     state => ({adressList: state.adressList}),
-    null
+    { loadRoute }
 )(TaxiModal)

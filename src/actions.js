@@ -8,6 +8,8 @@ export const REGISTRATION = "REGISTRATION";
 export const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 export const LOAD_ADRESS_LIST = "LOAD_ADRESS_LIST";
 export const SAVE_ADRESS_LIST = "SAVE_ADRESS_LIST";
+export const LOAD_ROUTE = "LOAD_ROUTE";
+export const SAVE_READY_ROUTE = "SERVER_READY_ROUTE";
 
 export const logIn = () => ({type: LOG_IN});
 export const logOut = () => ({type: LOG_OUT});
@@ -49,4 +51,14 @@ export const loadAdressList = () => ({
 export const saveAdressList = (addressList) => ({
   type: SAVE_ADRESS_LIST,
   payload: addressList,
+})
+
+export const loadRoute = ( firstRoad, secondRoad) => ({
+  type: LOAD_ROUTE,
+  payload: {firstRoad, secondRoad},
+})
+
+export const saveReadyRoute = (route) => ({
+  type: SAVE_READY_ROUTE,
+  payload: route,
 })

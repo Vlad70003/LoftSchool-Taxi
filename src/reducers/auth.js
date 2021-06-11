@@ -62,6 +62,12 @@ export default function auth(state = initialState, action){
         adressList: action.payload,
       }
     }
+    case SAVE_ADRESS_LIST: {
+      return{
+        ...state, 
+        adressList: action.payload,
+      }
+    }
 
     default: 
     return state;
