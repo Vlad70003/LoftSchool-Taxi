@@ -4,10 +4,15 @@ import './TaxiModal.css';
 import bmw  from '../img/bmw-pic.svg';
 import tesla from '../img/tesla-pic.svg';
 import marsedes from '../img/mrs-pic.svg';
+import arrowDown from '../img/arrow-down.svg';
 
 class TaxiModal extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            firstAddress: '',
+            secondAddress: '',
+        }
     }
 
     createOptions = (address) => {
@@ -30,12 +35,52 @@ class TaxiModal extends Component{
         parentTarget.classList.add('checked');
     }
 
+    addressList = (event, address) => {
+        let target = event.target;
+        let currentTarget = event.currentTarget;
+
+        if(currentTarget){
+            let isOpen = currentTarget.querySelector('.open');
+            if(isOpen){
+                isOpen.innerHTML = '';
+                isOpen.classList.remove('open')
+            }else{
+                console.log('Модалки нет')
+            }
+        }
+
+        if(target.classList.contains("path__input")){
+            let addressListModal = target.previousSibling;
+            for(let elements of address){
+                let element = document.createElement("div");
+                element.classList.add('element');
+                element.textContent = elements;
+                addressListModal.classList.add('open');
+                addressListModal.append(element);
+            }
+        }
+
+
+    }
+
     render(){
         return(
-            <div className="modal-wrapper" >
+            <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList)}>
                 <div className="path">
-                   <input type="text" placeholder='Откуда' className="path__input"/>
-                   <input type="text" placeholder='Куда' className="path__input"/>
+                   <div className="path__wrapper">
+                       <span className="path__list">
+                           {/* Рендер адресов при клике */}
+                       </span>
+                       <input type="text" placeholder='Откуда' className="path__input first-path" value={this.state.firstAddress} />
+                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/>
+                    </div>
+                   <div className="path__wrapper">
+                        <span className="path__list">
+                            {/* Рендер адресов при клике */}
+                        </span>
+                        <input type="text" placeholder='Куда' className="path__input second-path" value={this.state.secondAddress}/>
+                        <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down" />
+                    </div>
                 </div>
                 <ul className="class-taxi__list">
                     <div className="class-taxi__item-wrapper">
