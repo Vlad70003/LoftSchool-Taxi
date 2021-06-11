@@ -38,29 +38,51 @@ class TaxiModal extends Component{
     addressList = (event, address) => {
         let target = event.target;
         let currentTarget = event.currentTarget;
-
-        if(currentTarget){
-            let isOpen = currentTarget.querySelector('.open');
+        let isOpen = currentTarget.querySelector('.open');       
+        
+        if(currentTarget){  
+            //Закрытие модального окна при повторном клике     
             if(isOpen){
+                if(target.classList.contains('element')){
+                    let element = target.parentNode;
+                    if(element.classList.contains('first-path')){
+                        this.setState({firstAddress: target.innerHTML})
+                    } else if(element.classList.contains('second-path')){
+                        this.setState({secondAddress: target.innerHTML})
+                    }
+                }
+
                 isOpen.innerHTML = '';
                 isOpen.classList.remove('open')
             }else{
-                console.log('Модалки нет')
-            }
+                ///Если открытых окон нет, то при клике на input - открывает модалку
+                if(target.classList.contains("path__input") || target.classList.contains("arrow-down")){
+                    let addressListModal = target.closest('.path__wrapper').firstChild;
+
+                    if(addressListModal.classList.contains('first-path')){
+                        for(let elements of address){
+                            if(elements !== this.state.secondAddress){
+                                let element = document.createElement("div");
+                                element.classList.add('element');
+                                element.textContent = elements;
+                                addressListModal.classList.add('open');
+                                addressListModal.append(element);
+                            }
+                        }
+                    }else if (addressListModal.classList.contains('second-path')){
+                        for(let elements of address){
+                            if(elements !== this.state.firstAddress){
+                                let element = document.createElement("div");
+                                element.classList.add('element');
+                                element.textContent = elements;
+                                addressListModal.classList.add('open');
+                                addressListModal.append(element);
+                            }
+                        }
+                    }                   
+                }
+            }           
         }
-
-        if(target.classList.contains("path__input")){
-            let addressListModal = target.previousSibling;
-            for(let elements of address){
-                let element = document.createElement("div");
-                element.classList.add('element');
-                element.textContent = elements;
-                addressListModal.classList.add('open');
-                addressListModal.append(element);
-            }
-        }
-
-
     }
 
     render(){
@@ -68,17 +90,17 @@ class TaxiModal extends Component{
             <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList)}>
                 <div className="path">
                    <div className="path__wrapper">
-                       <span className="path__list">
-                           {/* Рендер адресов при клике */}
+                       <span className="path__list first-path">
+                        {/* Сюда рендерится содержимое модалки */}
                        </span>
-                       <input type="text" placeholder='Откуда' className="path__input first-path" value={this.state.firstAddress} />
+                       <input type="text" placeholder='Откуда' className="path__input" value={this.state.firstAddress} />
                        <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/>
                     </div>
                    <div className="path__wrapper">
-                        <span className="path__list">
-                            {/* Рендер адресов при клике */}
+                        <span className="path__list second-path">
+                            
                         </span>
-                        <input type="text" placeholder='Куда' className="path__input second-path" value={this.state.secondAddress}/>
+                        <input type="text" placeholder='Куда' className="path__input" value={this.state.secondAddress}/>
                         <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down" />
                     </div>
                 </div>
