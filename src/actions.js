@@ -53,9 +53,9 @@ export const saveAdressList = (addressList) => ({
   payload: addressList,
 })
 
-export const loadRoute = ( firstRoad, secondRoad) => ({
+export const loadRoute = ( firstRoute, secondRoute) => ({
   type: LOAD_ROUTE,
-  payload: {firstRoad, secondRoad},
+  payload: {firstRoute, secondRoute},
 })
 
 export const saveReadyRoute = (route) => ({

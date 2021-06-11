@@ -4,8 +4,8 @@ import { LOAD_ROUTE } from "../actions";
 import { serverReadyRoute } from "../api";
 
 export function* readyRouteSaga(action){
-    const {firstRoute, secondRoute} = action.payload;
-    const route = yield call(serverReadyRoute, firstRoute, secondRoute);
+    let {firstRoute, secondRoute} = action.payload;
+    let route = yield call(serverReadyRoute, firstRoute, secondRoute);
     yield put(saveReadyRoute(route));
   }
 
