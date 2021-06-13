@@ -88,15 +88,20 @@ class TaxiModal extends Component{
 
     handleReadyRoute = (event) => {
         event.preventDefault();
+        let target = event.target;
         if(this.state.firstAddress !== '' && this.state.secondAddress !== ''){
             this.props.loadRoute( this.state.firstAddress, this.state.secondAddress);
             this.props.setRouteBuild();
+        } else{
+            let error = target.closest('.modal-wrapper').firstChild;
+            error.style.opacity = 1;
         }
     }
 
     render(){
         return(
             <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList)}>
+                <div className="error-message error__taxi-modal">Выберите начальную и конечную точку!*</div>
                 <div className="path">
                    <div className="path__wrapper">
                        <span className="path__list first-path">

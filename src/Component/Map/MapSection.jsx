@@ -63,13 +63,20 @@ class MapSection extends React.Component {
     }
 
     componentDidUpdate() {
-        // if(this.props.saveCard){
             drawRoute(this.map, this.state.readyRoute);
-        // }       
     }
 
     componentWillUnmount(){
         this.map.remove();
+    }
+
+    newOrder = () => {
+        if (this.map.getLayer('route')) {
+            this.map.removeLayer('route');
+        }
+        if (this.map.getSource('route')) {
+            this.map.removeSource('route');
+        }
     }
 
     render(){

@@ -159,3 +159,7 @@ li {
   margin: 0;
   font-size: 18px;
 }
+.error__taxi-modal{
+  text-align: center;
+  padding-top: 2px;
+}

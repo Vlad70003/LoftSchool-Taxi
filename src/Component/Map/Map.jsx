@@ -5,13 +5,12 @@ import  MapSectionAuth  from './MapSection.jsx';
 import { AuthProfile } from './Profile/Profile.jsx';
 import { ProfileSuccessAuth } from './Profile/ProfileSuccess.jsx';
 import { AuthTaxiModal } from './TaxiModal/TaxiModal';
-import { TaxiModalSuccess } from './TaxiModal/TaxiModalComplated';
+import { AuthTaxiModalSuccess } from './TaxiModal/TaxiModalComplated';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 import { Link } from 'react-router-dom';
 import { PrivateRoute} from '../../PrivateRouter';
-
 
 export class Map extends React.Component {
 
@@ -49,7 +48,7 @@ export class Map extends React.Component {
                         </PrivateRoute>
                         <PrivateRoute exact path="/" >
                             { !this.state.routeBuilt && <AuthTaxiModal setRouteBuild={this.setRouteBuild}/> }
-                            { this.state.routeBuilt && <TaxiModalSuccess setRouteBuild={this.setRouteBuild}/> }
+                            { this.state.routeBuilt && <AuthTaxiModalSuccess setRouteBuild={this.setRouteBuild}/> }
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
                             {!this.props.saveCard && <AuthProfile /> }
