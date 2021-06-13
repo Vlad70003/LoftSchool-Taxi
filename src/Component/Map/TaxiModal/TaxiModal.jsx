@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadRoute } from '../../../actions';
-import './TaxiModal.css';
+import './style.css';
 import bmw  from '../img/bmw-pic.svg';
 import tesla from '../img/tesla-pic.svg';
 import marsedes from '../img/mrs-pic.svg';
@@ -90,6 +90,7 @@ class TaxiModal extends Component{
         event.preventDefault();
         if(this.state.firstAddress !== '' && this.state.secondAddress !== ''){
             this.props.loadRoute( this.state.firstAddress, this.state.secondAddress);
+            this.props.setRouteBuild();
         }
     }
 
@@ -99,7 +100,7 @@ class TaxiModal extends Component{
                 <div className="path">
                    <div className="path__wrapper">
                        <span className="path__list first-path">
-                        {/* Сюда рендерится содержимое модалки */}
+
                        </span>
                        <input type="text" placeholder='Откуда' className="path__input" value={this.state.firstAddress} />
                        <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/>

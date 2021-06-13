@@ -29,7 +29,7 @@ export const drawRoute = (map, coordinates) => {
         },
         paint: {
             "line-color": "#ffc617",
-            "line-width": 8
+            "line-width": 6
         }
     });
 };
@@ -63,7 +63,9 @@ class MapSection extends React.Component {
     }
 
     componentDidUpdate() {
+        // if(this.props.saveCard){
             drawRoute(this.map, this.state.readyRoute);
+        // }       
     }
 
     componentWillUnmount(){

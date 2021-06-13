@@ -144,3 +144,18 @@ li {
 .element:hover{
   background: rgb(207, 207, 207);
 }
+ /* Modal Success */
+
+.title-sizing{
+  font-size: 36px;
+}
+
+
+.taxi-modal__succ{
+  height: 269px;
+  padding: 30px;
+}
+.desc__no-margin{
+  margin: 0;
+  font-size: 18px;
+}
