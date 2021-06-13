@@ -59,7 +59,7 @@ export class Map extends React.Component {
 }
 
 export let MapWithAuth = connect(
-    state => ({isLoggedIn: state.isLoggedIn}, {saveCard: state.saveCard}),
+    state => ({isLoggedIn: state.isLoggedIn, saveCard: state.saveCard}),
     {logOut}
 )(Map);
 

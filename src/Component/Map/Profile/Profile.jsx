@@ -87,7 +87,7 @@ class Profile extends React.Component{
 
     render(){
         return(
-            <section className="modal-section">
+            <section className="modal-section" >
                 <ModalProfile domNode={document.querySelector("#modal")}>
                     <section className="profile">
                         <div className="profile__wrap">
