@@ -19,7 +19,17 @@ constructor(props){
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.registration( this.state.email, this.state.password, this.state.userName, this.state.userSurname);
+        let target = event.currentTarget;
+        let message = target.previousSibling.previousSibling;
+
+        if(this.state.email == '' && this.state.password == '' && this.state.userName == '' && this.state.userSurname == ''){
+            message.innerHTML = 'Заполните все поля!';
+            message.style.color = 'red';
+        } else{
+            this.props.registration( this.state.email, this.state.password, this.state.userName, this.state.userSurname);
+            message.innerHTML = 'Регистрация прошла успешно, теперь вы можете войти!';
+            message.style.color = 'green';
+        } 
     }
     handleChangeEmail = (event) => {
         this.setState({email: event.target.value});
@@ -37,6 +47,7 @@ constructor(props){
     render(){
         return(
             <div className="modal-reg">
+                    <div className="message"></div>
                     <h4 className="title">Регистрация</h4>
                     <form action="" className="form" data-testid="form" onSubmit={this.handleSubmit} >
                         <label htmlFor="email">Email*</label>

@@ -65,7 +65,6 @@ class Profile extends React.Component{
     };
 
     handleName = (event) => {
-        console.log(this.props.adressList)
         this.setState({name: event.target.value});
     }
 

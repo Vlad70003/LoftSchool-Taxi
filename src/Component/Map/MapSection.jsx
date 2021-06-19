@@ -36,7 +36,6 @@ export const drawRoute = (map, coordinates, zoom) => {
 
 const removeZoom = (map, zoom) => {
     map.flyTo({
-        // center: coordinates[0], 
         zoom: zoom
     });
 }
