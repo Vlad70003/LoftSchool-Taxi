@@ -52,9 +52,8 @@ class TaxiModal extends Component{
                         this.setState({secondAddress: target.innerHTML})
                     }
                 }
-
                 isOpen.innerHTML = '';
-                isOpen.classList.remove('open')
+                isOpen.classList.remove('open');
             }else{
                 ///Если открытых окон нет, то при клике на input - открывает модалку
                 if(target.classList.contains("path__input") || target.classList.contains("arrow-down")){
@@ -89,9 +88,14 @@ class TaxiModal extends Component{
     handleReadyRoute = (event) => {
         event.preventDefault();
         let target = event.target;
+        if(this.props.newOrder){
+            this.props.setNewOrder(false);
+        }
         if(this.state.firstAddress !== '' && this.state.secondAddress !== ''){
             this.props.loadRoute( this.state.firstAddress, this.state.secondAddress);
-            this.props.setRouteBuild();
+            this.props.setRouteBuild(true);
+            this.props.setEventProfile(false);
+
         } else{
             let error = target.closest('.modal-wrapper').firstChild;
             error.style.opacity = 1;

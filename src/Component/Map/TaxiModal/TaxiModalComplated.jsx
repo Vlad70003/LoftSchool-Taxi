@@ -5,7 +5,8 @@ import { loadRoute } from '../../../actions';
 class TaxiModalSuccess extends Component {
 
     handleReset = () => {
-        this.props.setRouteBuild();
+        this.props.setRouteBuild(false);
+        this.props.setNewOrder(true);
     }
 
     render(){

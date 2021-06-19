@@ -3,10 +3,10 @@ import mapbox from 'mapbox-gl';
 import { connect } from 'react-redux';
 
 
-export const drawRoute = (map, coordinates) => {
+export const drawRoute = (map, coordinates, zoom) => {
     map.flyTo({
         center: coordinates[0],
-        zoom: 15
+        zoom: zoom
     });
 
     map.addLayer({
@@ -34,6 +34,14 @@ export const drawRoute = (map, coordinates) => {
     });
 };
 
+const removeZoom = (map, zoom) => {
+    map.flyTo({
+        // center: coordinates[0], 
+        zoom: zoom
+    });
+}
+
+
 
 
 class MapSection extends React.Component {
@@ -44,11 +52,9 @@ class MapSection extends React.Component {
         this.state = {
             latitude: '30.30',
             longitude: '59.94',
-            zoom: '12',
-            readyRoute: this.props.readyRoute,
+            zoom: 12,
         }
     }
-
 
     componentDidMount(){
         mapbox.accessToken = "pk.eyJ1IjoibHVzdDcwMDAzIiwiYSI6ImNrb2Z5dGFwNzBsa2wydmp6bWlrYzU1ajYifQ.3XDEiAGyZBZQPENW796BeA";
@@ -63,7 +69,9 @@ class MapSection extends React.Component {
     }
 
     componentDidUpdate() {
-            drawRoute(this.map, this.state.readyRoute);
+        if(!this.props.newOrder && !this.props.eventProfile){
+            drawRoute(this.map, this.props.readyRoute, 15);
+        }       
     }
 
     componentWillUnmount(){
@@ -73,9 +81,11 @@ class MapSection extends React.Component {
     newOrder = () => {
         if (this.map.getLayer('route')) {
             this.map.removeLayer('route');
+            removeZoom(this.map, this.state.zoom)
         }
         if (this.map.getSource('route')) {
             this.map.removeSource('route');
+            removeZoom(this.map, this.state.zoom)
         }
     }
 
@@ -83,6 +93,7 @@ class MapSection extends React.Component {
         return (
             <div className="map-wrapper">
                 <div data-test="map" ref={this.mapConteiner} className="map"></div>
+                {this.props.newOrder && this.newOrder()}
             </div>
         )
     }

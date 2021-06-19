@@ -78,6 +78,7 @@ class Profile extends React.Component{
         this.setState({date: this.state.month/this.state.year})
         if( this.state.number.length == 20 && typeof this.state.name == 'string' && this.state.cvc.length == 3){
             this.props.saveCard( this.state.number, this.fullDate(this.state.month, this.state.year), this.state.name, this.state.cvc, this.state.token);
+            this.props.setEventProfile(true);
         }else{
             let error = document.querySelector('.error-profile');
             error.style.opacity = 1;

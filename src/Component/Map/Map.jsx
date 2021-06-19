@@ -18,6 +18,8 @@ export class Map extends React.Component {
         super(props);
         this.state = {
             routeBuilt: false,
+            newOrder: false,
+            eventProfile: false,
         }
     }
 
@@ -27,8 +29,16 @@ export class Map extends React.Component {
 
     }
 
-    setRouteBuild = () => {
-        this.setState({routeBuilt: !this.state.routeBuilt});
+    setRouteBuild = (boolean) => {
+        this.setState({routeBuilt: boolean});
+    }
+
+    setNewOrder = (boolean) => {
+        this.setState({newOrder: boolean});
+    }
+
+    setEventProfile = (boolean) => {
+        this.setState({eventProfile: boolean});
     }
 
     render(){
@@ -44,14 +54,14 @@ export class Map extends React.Component {
                 </header>
                 <section className="main">
                         <PrivateRoute path="/" >
-                            <MapSectionAuth />                          
+                            <MapSectionAuth newOrder={this.state.newOrder} eventProfile={this.state.eventProfile}/>
                         </PrivateRoute>
                         <PrivateRoute exact path="/" >
-                            { !this.state.routeBuilt && <AuthTaxiModal setRouteBuild={this.setRouteBuild}/> }
-                            { this.state.routeBuilt && <AuthTaxiModalSuccess setRouteBuild={this.setRouteBuild}/> }
+                            { !this.state.routeBuilt && <AuthTaxiModal setRouteBuild={this.setRouteBuild} setNewOrder={this.setNewOrder} newOrder={this.state.newOrder} setEventProfile={this.setEventProfile}/> }
+                            { this.state.routeBuilt && <AuthTaxiModalSuccess setRouteBuild={this.setRouteBuild} setNewOrder={this.setNewOrder}/> }
                         </PrivateRoute>
                         <PrivateRoute path="/profileModal" >
-                            {!this.props.saveCard && <AuthProfile /> }
+                            {!this.props.saveCard && <AuthProfile setEventProfile={this.setEventProfile}/> }
                             {this.props.saveCard && <ProfileSuccessAuth /> }
                         </PrivateRoute>
                 </section>
