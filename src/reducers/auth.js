@@ -5,6 +5,7 @@ let storage = localStorage;
 let userLogin = JSON.parse(storage.getItem('userLogin'));
 
 
+
 const initialState = {
 	isLoggedIn: false,
   saveCard: false,
@@ -14,6 +15,7 @@ const initialState = {
   adressList: '',
   readyRoute: '',
 }
+
 if(userLogin !== null){
   initialState.tokenLogin = userLogin[2];
 }

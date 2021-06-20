@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authenticate, loadAdressList } from '../../../actions';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 
 export class LoginModal extends React.Component {
     constructor(props){

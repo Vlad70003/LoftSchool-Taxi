@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 import { Link } from 'react-router-dom';
 import { PrivateRoute} from '../../PrivateRouter';
+let storage = localStorage;
 
 export class Map extends React.Component {
 
@@ -26,7 +27,8 @@ export class Map extends React.Component {
     logOut = (event) => {
         event.preventDefault();
         this.props.logOut();
-
+        storage.removeItem("addressList");
+        storage.removeItem("userLogin");
     }
 
     setRouteBuild = (boolean) => {

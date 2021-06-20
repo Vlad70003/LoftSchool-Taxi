@@ -52,6 +52,7 @@ class MapSection extends React.Component {
             latitude: '30.30',
             longitude: '59.94',
             zoom: 12,
+            readyRoute: '',
         }
     }
 
@@ -67,9 +68,10 @@ class MapSection extends React.Component {
         this.map.resize(); 
     }
 
-    componentDidUpdate() {
-        if(!this.props.newOrder && !this.props.eventProfile){
-            drawRoute(this.map, this.props.readyRoute, 15);
+    async componentDidUpdate() {
+        if(!this.props.newOrder && !this.props.eventProfile && this.props.readyRoute !== this.state.readyRoute){
+            await this.setState({readyRoute: this.props.readyRoute});
+            drawRoute(this.map, this.state.readyRoute, 15);
         }       
     }
 

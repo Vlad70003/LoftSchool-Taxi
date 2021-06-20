@@ -7,6 +7,9 @@ import tesla from '../img/tesla-pic.svg';
 import marsedes from '../img/mrs-pic.svg';
 import arrowDown from '../img/arrow-down.svg';
 
+let storage = localStorage;
+let addressList = JSON.parse(storage.getItem('addressList'));
+
 class TaxiModal extends Component{
     constructor(props){
         super(props);
@@ -16,13 +19,6 @@ class TaxiModal extends Component{
         }
     }
 
-    createOptions = (address) => {
-        let addressList = [];
-        for(let i = 0; i < address.length; i++){
-            addressList.push(<option value={address[i]} className="option">{address[i]}</option>)
-        }
-        return addressList;
-    } 
     checkedCard = (event) => {
         let target = event.target;
         let parentTarget = target.closest('.class-taxi__item');
@@ -60,21 +56,21 @@ class TaxiModal extends Component{
                     let addressListModal = target.closest('.path__wrapper').firstChild;
 
                     if(addressListModal.classList.contains('first-path')){
-                        for(let elements of address){
-                            if(elements !== this.state.secondAddress){
+                        for(let i = 0; i < address.length; i++){
+                            if(address[i] !== this.state.secondAddress){
                                 let element = document.createElement("div");
                                 element.classList.add('element');
-                                element.textContent = elements;
+                                element.textContent = address[i];
                                 addressListModal.classList.add('open');
                                 addressListModal.append(element);
                             }
                         }
                     }else if (addressListModal.classList.contains('second-path')){
-                        for(let elements of address){
-                            if(elements !== this.state.firstAddress){
+                        for(let i = 0; i < address.length; i++){
+                            if(address[i] !== this.state.firstAddress){
                                 let element = document.createElement("div");
                                 element.classList.add('element');
-                                element.textContent = elements;
+                                element.textContent = address[i];
                                 addressListModal.classList.add('open');
                                 addressListModal.append(element);
                             }
@@ -85,7 +81,7 @@ class TaxiModal extends Component{
         }
     }
 
-    handleReadyRoute = (event) => {
+    handleReadyRoute = async(event) => {
         event.preventDefault();
         let target = event.target;
         if(this.props.newOrder){
@@ -104,7 +100,7 @@ class TaxiModal extends Component{
 
     render(){
         return(
-            <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList)}>
+            <div className="modal-wrapper" onClick={(event) => this.addressList(event, this.props.adressList == '' ? addressList : this.props.adressList)}>
                 <div className="error-message error__taxi-modal">Выберите начальную и конечную точку!*</div>
                 <div className="path">
                    <div className="path__wrapper">
