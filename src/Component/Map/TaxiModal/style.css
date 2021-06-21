@@ -124,6 +124,13 @@ li {
   right: 30px;
   top: 27px;
 }
+.arrow-up{
+  position: absolute;
+  width: 15px;
+  right: 30px;
+  top: 27px;
+  transform: rotate(180deg);
+}
 
 .path__list{
   position: absolute;

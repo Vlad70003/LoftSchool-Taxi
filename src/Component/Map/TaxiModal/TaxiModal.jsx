@@ -16,6 +16,8 @@ class TaxiModal extends Component{
         this.state = {
             firstAddress: '',
             secondAddress: '',
+            firstAddressIsOpen: false,
+            secondAddressIsOpen: false,
         }
     }
 
@@ -50,6 +52,8 @@ class TaxiModal extends Component{
                 }
                 isOpen.innerHTML = '';
                 isOpen.classList.remove('open');
+                this.setState({firstAddressIsOpen: false});
+                this.setState({secondAddressIsOpen: false});
             }else{
                 ///Если открытых окон нет, то при клике на input - открывает модалку
                 if(target.classList.contains("path__input") || target.classList.contains("arrow-down")){
@@ -63,6 +67,7 @@ class TaxiModal extends Component{
                                 element.textContent = address[i];
                                 addressListModal.classList.add('open');
                                 addressListModal.append(element);
+                                this.setState({firstAddressIsOpen: true});
                             }
                         }
                     }else if (addressListModal.classList.contains('second-path')){
@@ -73,6 +78,7 @@ class TaxiModal extends Component{
                                 element.textContent = address[i];
                                 addressListModal.classList.add('open');
                                 addressListModal.append(element);
+                                this.setState({secondAddressIsOpen: true});
                             }
                         }
                     }                   
@@ -108,14 +114,20 @@ class TaxiModal extends Component{
 
                        </span>
                        <input type="text" placeholder='Откуда' className="path__input" value={this.state.firstAddress} />
-                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/>
+                       {!this.state.firstAddressIsOpen ? 
+                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/> :
+                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-up"/>
+                       }                      
                     </div>
                    <div className="path__wrapper">
                         <span className="path__list second-path">
                             
                         </span>
                         <input type="text" placeholder='Куда' className="path__input" value={this.state.secondAddress}/>
-                        <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down" />
+                        {!this.state.secondAddressIsOpen ? 
+                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-down"/> :
+                       <img src={arrowDown} alt="arrowDown" srcset="" className="arrow-up"/>
+                       } 
                     </div>
                 </div>
                 <ul className="class-taxi__list">
