@@ -3,7 +3,8 @@
     box-sizing: border-box;
     outline: none;
 }
-.modal-login{
+.modal-reg{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -31,7 +32,13 @@
 }
 .user-inf{
     display: flex;
-    justify-content: space-a;
+    padding-top: 15px;
+}
+.user-inf>div{
+    width: 200px;
+}
+.user-inf__lastName{
+    margin-left: 10px;
 }
 label{
     font-weight: 700;
@@ -57,9 +64,6 @@ input{
     padding: 15px 0;
     margin: 25px 0px;
     border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
 }
 .new-user{
     margin: 0 auto;
@@ -77,4 +81,8 @@ input{
     background: transparent;
     font-size: 16px;
     cursor: pointer;
+}
+.message{
+    position: absolute;
+    top : 20px;
 }

@@ -1,9 +1,17 @@
+.map{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+}
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background: #1C1A19;
+    z-index: 999999;
 }
 .nav-link{
     color: white;
@@ -11,4 +19,8 @@
     margin-left: 5px;
     text-transform: none;
     text-decoration: none;
+}
+.main{
+    height: 100%;
+    position: relative;
 }

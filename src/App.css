@@ -36,3 +36,54 @@
     transform: rotate(360deg);
   }
 }
+.mapSection{
+  overflow: hidden;
+}
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 10px; /* ширина для вертикального скролла */
+  background-color: white;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: #FDBF5A;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: orange;
+}
+
+/* Стрелки */
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(120deg, white 40%, rgba(0, 0, 0, 0) 41%),
+  linear-gradient(240deg, white 40%, rgba(0, 0, 0, 0) 41%),
+  linear-gradient(0deg, white 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: orange;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background:
+      linear-gradient(300deg, white 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(60deg, white 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(180deg, white 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: orange;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background:
+      linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background:
+      linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+      linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
+}
